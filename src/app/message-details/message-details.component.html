@@ -1,0 +1,7 @@
+<div *ngIf="msg">
+  <h2>{{ msg.sender | uppercase }} Details</h2>
+  <div><span>sender: </span>{{ msg.sender }}</div>
+  <div><span>receiver: </span>{{ msg.receiver }}</div>
+  <div><span>content: </span>{{ msg.content }}</div>
+  <button (click)="goBack()">go back</button>
+</div>

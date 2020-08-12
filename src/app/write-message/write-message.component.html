@@ -1,0 +1,8 @@
+<div>
+  <label> Sender: <input #content /> </label>
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(content.value); content.value = ''">
+    add
+  </button>
+</div>
