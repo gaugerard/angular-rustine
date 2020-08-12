@@ -1,0 +1,10 @@
+.container-msg{
+        margin: 0 2rem 0 2rem;
+        list-style-type: square;
+}
+a:hover{
+        color: var(--redRust);
+}
+li{
+        width: 150px;
+}

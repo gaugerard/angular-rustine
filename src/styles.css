@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* variables */
+:root{
+    --lighterGrey :rgb(77, 77, 77);
+    --darkGrey : rgb(58, 58, 58);
+    --darkerGrey : rgb(46, 46, 46);
+    --darkGreyBlue : rgb(73, 70, 87);
+    --redRust :#CD4128;
+}
+
+/* reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* fonts import*/
+@font-face {
+    font-family: Rust;
+    src: url(./fonts/Rust.ttf);
+}
+/* generiques */
+.red{
+    color: var(--redRust);
+}
+.hover-red:hover{
+    color: var(--redRust);
+}
+/* general */
+body{
+    background: var(--lighterGrey);
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+li{
+    list-style-type: none;
+}
+h1, h2, h3, h4{
+    color: white;
+    font-family: 'Mina', sans-serif;
+    font-weight: 300;
+}
+.hr-h{
+    width: 250px;
+    height: 2px;
+    background-color: white;
+    margin-bottom: 1rem;
+    box-shadow:  0 5px 5px 0 rgba(32, 32, 32, 0.226);
+    opacity: 0.8;
+}
+.hr-li{
+    width: 150px;
+    height: 1px;
+    background-color: white;
+    margin-bottom: 1rem;
+    opacity: 0.1;
+}
+

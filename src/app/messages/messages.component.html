@@ -1,8 +1,12 @@
-<h2>Messages</h2>
-<ul class="messages">
-  <li *ngFor="let msg of messages">
-    <a routerLink="/detail/{{ msg.id }}">
-      <span class="badge">{{ msg.id }}</span> {{ msg.sender }}
-    </a>
-  </li>
-</ul>
+<div class="container-msg">
+  <h2>MESSAGES</h2>
+  <div class="hr-h"></div>
+  <ul class="messages">
+    <li *ngFor="let msg of messages">
+      <a routerLink="/detail/{{ msg.id }}">
+        <span class="badge">{{ msg.id }}</span> {{ msg.sender }} <div class="hr-li"></div>
+      </a>
+    </li>
+  </ul>
+</div>
+
