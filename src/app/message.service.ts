@@ -11,7 +11,8 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class MessageService {
-  private messagessUrl = 'api/messages'; // URL to web api
+  private messagessUrl = 'http://localhost:3000/messages'; // URL to web api
+  private messageUrl = 'http://localhost:3000/message'; // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -20,12 +21,14 @@ export class MessageService {
   constructor(private http: HttpClient) {}
 
   getMessages(): Observable<Message[]> {
+    //return this.http.get<Message[]>(this.messagessUrl);
+    console.log(this.http.get<Message[]>(this.messagessUrl));
     return this.http.get<Message[]>(this.messagessUrl);
   }
 
   /** GET hero by id. Will 404 if id not found */
   getMessage(id: number): Observable<Message> {
-    const url = `${this.messagessUrl}/${id}`;
+    const url = `${this.messageUrl}/${id}`;
     return this.http
       .get<Message>(url)
       .pipe(catchError(this.handleError<Message>(`getMessage id=${id}`)));
