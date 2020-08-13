@@ -1,5 +1,5 @@
-<div *ngIf="msg">
-  <h2>{{ msg.sender | uppercase }} Details</h2>
+<div *ngIf="msg" class="msg-details">
+  <h2>Message from : {{ msg.sender | uppercase }}</h2>
   <div><span>sender: </span>{{ msg.sender }}</div>
   <div><span>receiver: </span>{{ msg.receiver }}</div>
   <div><span>content: </span>{{ msg.content }}</div>

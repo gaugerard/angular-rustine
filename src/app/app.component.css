@@ -3,13 +3,13 @@
     height: 60px;
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
     box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.1);
 }
-.header i{
+.logo-icon{
     font-size: 2rem;
     color: var(--redRust);
     margin-left: 1rem;
+    transform: translateY(4px);
 }
 .ang-title{
     color: white;
@@ -17,11 +17,12 @@
     font-size: 2rem;
     letter-spacing: 2px;
     margin: 0 2rem 0 1rem;
+    transition: 5s;
     transform: translateY(4px); /*Correction du bug d'affichage de la police (s'affichait trop haut : erreur de conception de la police)*/
 }
 nav{
     display: flex;
-    font-family: 'Mina', sans-serif;;
+    font-family: 'Mina', sans-serif;
 }
 nav a{
     margin: 0 3rem;
@@ -32,4 +33,7 @@ nav, nav a{
 }
 nav p{
     opacity: 0.2;
+}
+.logo{
+    display: flex;
 }

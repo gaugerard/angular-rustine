@@ -1,10 +1,31 @@
 .container-msg{
-        margin: 0 2rem 0 2rem;
         list-style-type: square;
+        background: var(--grey);
+        width: 270px;
+        height: calc(100vh - 60px);
+        padding: 2rem 1.5rem;
+        border-right: 2px solid var(--darkGrey);
 }
 a:hover{
         color: var(--redRust);
 }
 li{
         width: 150px;
+        font-size: 1.2rem;
+        font-weight: 300;
+}
+.hr-h{
+        width: 244px;
+        height: 2px;
+        background-color: white;
+        margin-bottom: 1rem;
+        box-shadow:  0 5px 5px 0 rgba(32, 32, 32, 0.226);
+        opacity: 0.5;
+    }
+.hr-li{
+        width: 150px;
+        height: 1px;
+        background-color: white;
+        margin-bottom: 1rem;
+        opacity: 0.1;
 }

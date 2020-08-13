@@ -2,11 +2,13 @@
 
 /* variables */
 :root{
-    --lighterGrey :rgb(77, 77, 77);
+    --lighterGrey :rgb(187, 187, 187);
+    --lightGrey :rgb(77, 77, 77);
+    --grey : rgb(66, 66, 66);
     --darkGrey : rgb(58, 58, 58);
     --darkerGrey : rgb(46, 46, 46);
-    --darkGreyBlue : rgb(73, 70, 87);
     --redRust :#CD4128;
+    --almostWhite : rgb(248, 248, 248);
 }
 
 /* reset */
@@ -30,9 +32,10 @@
 }
 /* general */
 body{
-    background: var(--lighterGrey);
+    background: var(--lightGrey);
     font-family: 'Roboto', sans-serif;
 }
+
 a{
     color: white;
     text-decoration: none;
@@ -45,20 +48,5 @@ h1, h2, h3, h4{
     color: white;
     font-family: 'Mina', sans-serif;
     font-weight: 300;
-}
-.hr-h{
-    width: 250px;
-    height: 2px;
-    background-color: white;
-    margin-bottom: 1rem;
-    box-shadow:  0 5px 5px 0 rgba(32, 32, 32, 0.226);
-    opacity: 0.8;
-}
-.hr-li{
-    width: 150px;
-    height: 1px;
-    background-color: white;
-    margin-bottom: 1rem;
-    opacity: 0.1;
 }
 
