@@ -34,7 +34,7 @@ export class WriteMessageComponent implements OnInit {
     }
     this.messageService
       .addMessage({
-        content: 'salut je suis contenu!',
+        content: 'salut je suis un contenu!',
         sender: name,
         receiver: 'nath',
       } as Message)

@@ -1,7 +1,16 @@
-<div *ngIf="msg" class="msg-details">
-  <h2>Message from : {{ msg.sender | uppercase }}</h2>
-  <div><span>sender: </span>{{ msg.sender }}</div>
-  <div><span>receiver: </span>{{ msg.receiver }}</div>
-  <div><span>content: </span>{{ msg.content }}</div>
-  <button (click)="goBack()">go back</button>
+<div class="container">
+  <app-messages></app-messages>
+  <div *ngIf="msg" class="msg-details-all">
+
+    <!-- <h2>Message from : {{ msg.sender | uppercase }}</h2>
+    <div class="hr-h"></div> -->
+    
+    <div><span>From : </span>{{ msg.sender }}</div>
+    <div class="hr-from-to"></div>
+    <div><span>To : </span>{{ msg.receiver }}</div>
+    <div class="hr-from-to"></div>
+    <div class="msg">{{ msg.content }}</div>
+    <button (click)="goBack()">Back</button>
+  </div>
 </div>
+
