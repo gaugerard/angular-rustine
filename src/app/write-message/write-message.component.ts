@@ -28,13 +28,15 @@ export class WriteMessageComponent implements OnInit {
   }
 
   add(name: string): void {
+
     name = name.trim();
     if (!name) {
       return;
     }
     this.messageService
       .addMessage({
-        id: 888,
+        // todo, generate id for mysql.
+        id: Math.floor(Math.random() * Math.floor(10000)),
         content: 'test 12',
         sender: name,
         receiver: 'josianne',

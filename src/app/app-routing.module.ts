@@ -8,11 +8,11 @@ const routes: Routes = [
   { path: '', redirectTo: '/messages', pathMatch: 'full' },
   { path: 'messages', component: MessagesComponent },
   { path: 'write-message', component: WriteMessageComponent },
-  {path: 'detail/:id', component: MessageDetailsComponent}
+  {path: 'detail/:id', component: MessageDetailsComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)], 
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
