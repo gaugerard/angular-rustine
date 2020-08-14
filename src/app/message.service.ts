@@ -11,8 +11,9 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class MessageService {
-  private messagessUrl = 'http://localhost:3000/messages'; // URL to web api
-  private messageUrl = 'http://localhost:3000/message'; // URL to web api
+  private messagessUrl = 'http://51.210.12.59:9000/messages'; // URL to web api
+  private messageUrl = 'http://51.210.12.59:9000/message'; // URL to web api
+  private postmessageUrl = 'http://51.210.12.59:9000/new/message'; // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -37,7 +38,7 @@ export class MessageService {
   /** POST: add a new hero to the server */
   addMessage(msg: Message): Observable<Message> {
     return this.http
-      .post<Message>(this.messagessUrl, msg, this.httpOptions);
+      .post<Message>(this.postmessageUrl, msg, this.httpOptions);
   }
 
   /**

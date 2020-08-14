@@ -34,9 +34,10 @@ export class WriteMessageComponent implements OnInit {
     }
     this.messageService
       .addMessage({
-        content: 'salut je suis contenu!',
+        id: 888,
+        content: 'test 12',
         sender: name,
-        receiver: 'nath',
+        receiver: 'josianne',
       } as Message)
       .subscribe((message) => {
         this.messages.push(message);
