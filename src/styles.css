@@ -44,6 +44,7 @@
     margin-bottom: 1rem;
     opacity: 0.1;
 }
+
 /* general */
 body{
     background: var(--almostWhite);
@@ -86,4 +87,22 @@ input{
 /* focus */
 textarea:focus, input:focus, button{
     outline: none;
+}
+
+/* menu */
+.h2-flex-ico{
+    display: flex;
+    margin-top: 2.5rem;
+}
+.h2-flex-ico i{
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 0.8rem;
+    transform: translateY(5px);
+}
+.hover-red h2{
+    margin-top: 0.5rem;
+}
+.hover-red h2:hover{
+    color: var(--redRust);
 }
