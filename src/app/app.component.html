@@ -1,17 +1,42 @@
 <header>
   <!-- <div class="logo"><img src="../img/logo.svg" alt="Angular-Rustine-Logo"></div> -->
   <div class="header">
-    <a href="#" class="logo">
+
+    
+    <a href="../index.html" class="logo">
       <i class="fas fa-radiation logo-icon"></i>
       <div class="ang-title">
         {{title}}
       </div>
     </a>
-    <!-- <nav>
-      <a routerLink="/messages" class="hover-red">Messages</a>
-      <p>|</p>
-      <a routerLink="/write-message" class="hover-red">Write a Message</a>
-    </nav> -->
+
+    <div class="right-side-menu">
+
+      <div class="menu-icon">
+        <a href="#">
+          <i class="fas fa-toolbox"></i>
+        </a>
+      </div>
+
+      <div class="menu-icon">
+        <a href="../index.html">
+          <i class="fas fa-home"></i>
+        </a>
+      </div>
+      
+      <div class="menu-icon">
+        <i class="fas fa-bars dropbtn" onclick="drop()"></i>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="#"> <i class="fas fa-sign-in-alt"></i> Connexion</a>
+          <a href="#"> <i class="fas fa-user"></i> My profile</a>
+          <a href="#"> <i class="fas fa-envelope"></i> Messages</a>
+        </div>
+      </div>
+
+    </div>
+    
+    
   </div>
 </header>
 <router-outlet></router-outlet>
+

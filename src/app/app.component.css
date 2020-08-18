@@ -2,6 +2,7 @@
     background-color: var(--darkGrey) ;
     height: 60px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.1);
 }
@@ -18,22 +19,61 @@
     letter-spacing: 2px;
     margin: 0 2rem 0 1rem;
     transition: 5s;
-    transform: translateY(4px); /*Correction du bug d'affichage de la police (s'affichait trop haut : erreur de conception de la police)*/
-}
-nav{
-    display: flex;
-    font-family: 'Mina', sans-serif;
-}
-nav a{
-    margin: 0 3rem;
-    transition: 0.03s;
-}
-nav, nav a{
-    font-size: 1.4rem;
-}
-nav p{
-    opacity: 0.2;
+    transform: translateY(4px); 
 }
 .logo{
     display: flex;
 }
+
+.right-side-menu{
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.menu-icon{
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 0.2s;
+  margin: 0.5rem;
+}
+.menu-icon i:hover{
+  color: var(--redRust);
+}
+
+/* dropdown */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--grey);
+  min-width: 160px;
+  overflow: auto;
+  z-index: 1;
+  transform: translate(-130px, 11px);
+  box-shadow: 0 5px 10px 0 rgba(39, 39, 39, 0.445);
+  border-radius: 0 0 5px 5px;
+}
+.dropdown-content a {
+  color: white;
+  font-size: 1.2rem;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a i{
+  margin-right: 7px;
+}
+.dropdown-content a:hover{
+  color: var(--redRust);
+}
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {display: block;}

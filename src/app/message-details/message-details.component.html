@@ -1,12 +1,18 @@
 <div class="container">
-    <app-messages></app-messages>
-  <div *ngIf="msg" class="msg-details-all">    
+
+  <app-messages></app-messages>
+
+  <div *ngIf="msg" class="msg-details-all">  
+
     <div><span>From : </span>{{ msg.sender }}</div>
     <div class="hr-from-to"></div>
+    
     <div><span>To : </span>{{ msg.receiver }}</div>
     <div class="hr-from-to"></div>
+    
     <div class="msg">{{ msg.content }}</div>
     <button (click)="goBack()">Back</button>
+    
   </div>
 </div>
 

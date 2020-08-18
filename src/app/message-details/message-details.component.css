@@ -2,6 +2,8 @@
     padding: 1.5rem 1.5rem;
     width: 50%;
     font-size: 1.2rem;
+    position: fixed;
+    left: 265px;
 }
 .msg-details-all h2{
     color: black;

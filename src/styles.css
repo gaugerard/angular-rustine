@@ -47,8 +47,11 @@
 
 /* general */
 body{
-    background: var(--almostWhite);
+    /* background: var(--almostWhite); */
+    background: url(./img/BGw.png);
+    background-size: contain; 
     font-family: 'Roboto', sans-serif;
+    background-attachment:fixed;
 }
 .container{
     display: flex;
@@ -84,6 +87,11 @@ input{
     border: none;
     margin: 0 0.5rem 0 0.5rem;
 }
+header{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
 /* focus */
 textarea:focus, input:focus, button{
     outline: none;
@@ -105,4 +113,26 @@ textarea:focus, input:focus, button{
 }
 .hover-red h2:hover{
     color: var(--redRust);
+}
+
+/* goTop */
+
+.topVisible{
+    color: white;
+    opacity: 1;
+    height: 50px;
+    width: 50px;   
+    background-color: var(--redRust);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    transition: 1s;
+}
+.topInvisible{
+    opacity: 0;
 }
