@@ -12,8 +12,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class MessageService {
   private messagessUrl = 'http://51.210.12.59:9000/messages'; // URL to web api
-  private messageUrl = 'http://51.210.12.59:9000/message'; // URL to web api
-  private postmessageUrl = 'http://51.210.12.59:9000/new/message'; // URL to web api
+  private messageUrl = 'http://51.210.12.59:9000/messages'; // URL to web api
+  private postmessageUrl = 'http://51.210.12.59:9000/messages'; // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),

@@ -3,7 +3,7 @@
   <div class="header">
 
     
-    <a href="../index.html" class="logo">
+    <a routerLink="/write-message" class="logo">
       <i class="fas fa-radiation logo-icon"></i>
       <div class="ang-title">
         {{title}}
@@ -36,6 +36,7 @@
           <a href="#"> <i class="fas fa-sign-in-alt"></i> Connexion</a>
           <a href="#"> <i class="fas fa-user"></i> My profile</a>
           <a href="#"> <i class="fas fa-envelope"></i> Messages</a>
+          <a class="nav-item nav-link" (click)="logout()">Logout</a>
         </div>
       </div>
 
