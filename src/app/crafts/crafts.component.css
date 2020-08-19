@@ -1,0 +1,40 @@
+
+.container-crafts{
+    padding : 1rem 3rem 0 3rem;
+    display: flex;
+}
+
+.user-list-all{
+    width: 300px;
+    background: var(--grey);
+    border-radius: 10px;
+}
+.wrapper{
+    background: var(--lighterGrey);
+}
+.wrapper h1{
+    padding : 1rem 3rem 0 3rem;
+}
+.crafts-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+.crafts-btn button{
+    font-size: 0.8rem;
+    width: 40px;
+}
+.user-list{
+    background: white;
+    min-height: 100px;
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.input-craft{
+    width: 130px;
+    height: 30px;
+    margin: 0;
+}

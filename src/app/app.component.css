@@ -33,10 +33,10 @@
 
 .menu-icon{
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
   transition: 0.2s;
-  margin: 0.5rem;
+  margin: 1rem;
 }
 .menu-icon i:hover{
   color: var(--redRust);
@@ -55,7 +55,7 @@
   min-width: 160px;
   overflow: auto;
   z-index: 1;
-  transform: translate(-130px, 11px);
+  transform: translate(-137px, 15px);
   box-shadow: 0 5px 10px 0 rgba(39, 39, 39, 0.445);
   border-radius: 0 0 5px 5px;
 }
