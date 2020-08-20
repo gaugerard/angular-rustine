@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
         next: (data) => {
           if (data) {
             console.log("Access granted!");
-            this.router.navigate(['/messages']);
+            this.router.navigate(['/wipes']);
           } else {
             // get return url from route parameters or default to '/'
             console.log("Access Denied...");
