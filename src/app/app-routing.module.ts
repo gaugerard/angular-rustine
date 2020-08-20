@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'messages', component: MessagesComponent, canActivate: [AuthGuard] },
   { path: 'write-message', component: WriteMessageComponent, canActivate: [AuthGuard] },
   { path: 'detail/:id', component: MessageDetailsComponent, canActivate: [AuthGuard] },
-  { path: 'crafts', component: CraftsComponent }
+  { path: 'crafts', component: CraftsComponent, canActivate: [AuthGuard]  }
 ];
 
 @NgModule({

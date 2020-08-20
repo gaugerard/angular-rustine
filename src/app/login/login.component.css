@@ -1,0 +1,77 @@
+.wrapper{
+    /* background: white; */
+    background: url(../../img/rustBG1080p.png);
+    background-size:  cover;
+    display: flex;
+    justify-content: center;
+}
+.login-panel{
+    display: flex;
+    justify-content: center;
+    margin-top: 6rem;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    width: 100px;
+    background: var(--lighterGrey);
+    margin-top: 1rem;
+}
+button:hover{
+    background: var(--redRust);
+}
+.login-panel input{
+    height: 2rem;
+    border-radius: 0;
+    margin: 0.5rem 0 0 0;
+    background: var(--lighterGrey);
+    
+}
+.login-panel h1{
+    margin: 0 auto 0 auto;
+}
+.login-panel{
+    font-size: 1.2rem;
+}
+
+.login-form>*{
+    margin-top: 1rem;
+}
+
+.error{
+    font-size: 0.8rem;
+    color: var(--redRust);
+}
+
+.panel-left{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 350px;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.288);
+}
+.panel-right{
+    background: var(--redRust);
+    width: 30px;
+    height: 350px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.288);
+}
+
+
+
+.label-form{
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--darkGrey);
+}
+
+.username, .password{
+    display: flex;
+    flex-direction: column;
+}
