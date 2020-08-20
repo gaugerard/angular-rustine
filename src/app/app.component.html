@@ -20,7 +20,7 @@
       
       <div class="menu-icon">
         <a routerLink="/messages">
-          <i class="fas fa-envelope"></i>
+          <i class="fas fa-comment-dots"></i>
         </a>
       </div>
 
@@ -35,8 +35,7 @@
         <div id="myDropdown" class="dropdown-content">
           <a href="#"> <i class="fas fa-sign-in-alt"></i> Connexion</a>
           <a href="#"> <i class="fas fa-user"></i> My profile</a>
-          <a href="#"> <i class="fas fa-envelope"></i> Messages</a>
-          <a class="nav-item nav-link" (click)="logout()">Logout</a>
+          <a (click)="logout()"> <i class="fas fa-sign-out-alt"></i> Log out</a>
         </div>
       </div>
 

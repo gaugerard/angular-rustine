@@ -48,7 +48,9 @@
     margin-bottom: 1rem;
     opacity: 0.1;
 }
-
+.padding-top{
+    padding-top: 2rem;
+}
 /* general */
 body{
     background: var(--almostWhite);

@@ -47,4 +47,8 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
+
+  getUser(): Observable<User>{
+    return this.currentUser;
+  }
 }

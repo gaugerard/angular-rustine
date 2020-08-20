@@ -1,0 +1,58 @@
+.container-wipes{
+    list-style-type: square;
+    background: var(--grey);
+    width: 320px;
+    min-height: calc(100vh - 60px);
+    height: 100%;
+    border-right: 2px solid var(--darkGrey);
+}
+
+.container-wipes h1, h2{
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+a:hover{
+    color: var(--redRust);
+}
+li{
+    width: 250px;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.hr-wipes-name{
+    background: rgba(255, 255, 255, 0.637);
+    height: 2px;
+    width: 50%;
+    margin-bottom: 1rem;
+}
+.hr-wipes-list{
+    background: rgba(255, 255, 255, 0.637);
+    height: 2px;
+    width: 90%;
+}
+.your-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    width: 90%;
+}
+
+.your-list a{
+    font-size: 1.2rem;
+    margin-left: 1rem;
+}
+
+.your-list input{
+    border-radius: 0;
+    background: rgb(119, 119, 119);
+    width: 70%;
+    height: 35px;
+    color: white;
+}
+.avatar-wipes{
+    font-size: 1.2rem;
+    transform: translateY(-2px);
+    margin-right: 1rem;
+}
