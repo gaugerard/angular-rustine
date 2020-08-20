@@ -25,7 +25,7 @@ export class AuthenticationService {
 
   login(username: string, password: string): Observable<User> {
     return this.http
-      .post<User>(`http://51.210.12.59:9000/users`, {
+      .post<User>(`http://51.210.12.59:9000/user/login`, {
         username,
         password,
       })

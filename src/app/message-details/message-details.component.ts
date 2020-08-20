@@ -21,10 +21,6 @@ export class MessageDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMessage();
-    this.sub = this.route.params.subscribe(params => {
-      const term = params['term'];
-      this.service.get(term).then(result => { console.log(result); });
-    });
   }
 
   getMessage(): void {
