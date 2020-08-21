@@ -7,6 +7,7 @@ import { AuthUser } from './auth_user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Blueprint } from './blueprint';
+import { WipeChat } from './wipe_chat';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,7 @@ export class WipeService {
   private wipesUrl = 'http://51.210.12.59:9000/wipe';
   private wipeAuthUrl = 'http://51.210.12.59:9000/auth_user/user';
   private wipeBlueprint = 'http://51.210.12.59:9000/blueprint';
+  private wipeWipeChat = 'http://51.210.12.59:9000/wipe_chat';
 
   private authorized_wipe: AuthUser[] = [];
   private wipes: Wipe[] = [];
@@ -63,6 +65,13 @@ export class WipeService {
     const url = `${this.wipeBlueprint}/${wipe_id}`;
     console.log(url);
     return this.http.get<Blueprint[]>(url);
+  }
+
+  //get wipe_chat for a specific wipe
+  getWipeChat(wipe_id: number): Observable<WipeChat[]> {
+    const url = `${this.wipeWipeChat}/${wipe_id}`;
+    console.log(url);
+    return this.http.get<WipeChat[]>(url);
   }
 
   // add a new wipe to the logged user.

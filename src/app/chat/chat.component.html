@@ -1,0 +1,8 @@
+<app-wipes></app-wipes>
+
+<ul class="messages">
+  <li *ngFor="let msg of messages">
+    <span class="badge">{{ msg.date }}</span> {{ msg.content }}
+    <div class="hr-li"></div>
+  </li>
+</ul>

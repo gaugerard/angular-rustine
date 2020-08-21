@@ -6,12 +6,24 @@ import { MessageDetailsComponent } from './message-details/message-details.compo
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './_helpers/auth.guard';
 import { CraftsComponent } from './crafts/crafts.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
   //{ path: '', redirectTo: '/messages', pathMatch: 'full' },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'wipes', component: WipesComponent, canActivate: [AuthGuard] },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'wipes',
+    component: WipesComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'write-message',
     component: WriteMessageComponent,
@@ -22,7 +34,16 @@ const routes: Routes = [
     component: MessageDetailsComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'crafts/:wipe_id', component: CraftsComponent, canActivate: [AuthGuard] },
+  {
+    path: 'crafts/:wipe_id',
+    component: CraftsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'chat/:wipe_id',
+    component: ChatComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

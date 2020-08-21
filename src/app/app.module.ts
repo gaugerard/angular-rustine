@@ -14,6 +14,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { CraftsComponent } from './crafts/crafts.component';
 import { LoginComponent } from './login/login.component';
 import { WipesComponent } from './wipes/wipes.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { WipesComponent } from './wipes/wipes.component';
     CraftsComponent,
     LoginComponent,
     WipesComponent,
+    ChatComponent,
   ],
   imports: [
     HttpClientModule,
