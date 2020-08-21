@@ -1,25 +1,41 @@
 <div class="container-wipes">
-  <div class="padding-top">
-    <h1><i class="fas fa-user avatar-wipes"></i>{{ user.pseudo }}</h1>
-
-    <div class="hr-wipes-name"></div>
-
-    <h2>Your wipes</h2>
-
-    <div class="hr-wipes-list"></div>
-
-    <div class="your-list">
-      <input type="text" name="" id="" />
-      <a href="#"><i class="fas fa-plus"></i></a>
+  <div>
+    <div class="wipes-head">
+      <h1>{{ user.pseudo }} #{{ user.id }}</h1>
     </div>
 
-    <ul class="messages">
-      <li *ngFor="let wipe of wipes">
-        <a [routerLink]="['/crafts', wipe.id ]">
-          <span class="badge">{{ wipe.server_name }}</span>
-        </a>
-        <div class="hr-li"></div>
-      </li>
-    </ul>
+    <div class="wipes-main">
+      <h2 class="title-wipe">YOUR WIPES <i class="fas fa-chevron-down"></i></h2>
+      <div class="hr-wipes-list"></div>
+
+      <div class="your-list">
+        <div>
+          <ul class="messages">
+            <li *ngFor="let wipe of wipes">
+              <a [routerLink]="['/crafts', wipe.id]">
+                <span class="badge">{{ wipe.server_name }}</span>
+              </a>
+              <a><i class="fas fa-user-plus"></i></a>
+              <div class="hr-li"></div>
+              
+            </li>
+          </ul>
+        </div>
+
+        <div class="add-wipe">
+          <input type="text" name="" id="" placeholder="Add a new server" />
+          <a href="#"><i class="fas fa-plus-square"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wipes-bottom">
+    <i class="fas fa-server"></i>
+    <p>2</p>
+    <i class="fas fa-user avatar-wipes"></i>
+    <p>4</p>
+    <i class="fas fa-tools"></i>
+    <p>22</p>
   </div>
 </div>
