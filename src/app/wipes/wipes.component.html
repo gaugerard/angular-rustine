@@ -23,8 +23,8 @@
         </div>
 
         <div class="add-wipe">
-          <input type="text" name="" id="" placeholder="Add a new server" />
-          <a href="#"><i class="fas fa-plus-square"></i></a>
+          <input type="text" name="" id="server_name" #server_name placeholder="Add a new server" />
+          <a (click)="addWipe(server_name.value);"><i class="fas fa-plus-square"></i></a>
         </div>
       </div>
     </div>

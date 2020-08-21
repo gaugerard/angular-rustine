@@ -15,6 +15,7 @@ import { WipeChat } from './wipe_chat';
 export class WipeService {
   private wipesUrl = 'http://51.210.12.59:9000/wipe';
   private wipeAuthUrl = 'http://51.210.12.59:9000/auth_user/user';
+  private wipeAddAuthUrl = 'http://51.210.12.59:9000/auth_user';
   private wipeBlueprint = 'http://51.210.12.59:9000/blueprint';
   private wipeWipeChat = 'http://51.210.12.59:9000/wipe_chat';
 
@@ -74,9 +75,15 @@ export class WipeService {
     return this.http.get<WipeChat[]>(url);
   }
 
-  // add a new wipe to the logged user.
-  addMessage(wipe: Wipe): Observable<Wipe> {
+  // add a new wipe.
+  addWipe(wipe: Wipe): Observable<Wipe> {
     return this.http.post<Wipe>(this.wipesUrl, wipe, this.httpOptions);
+  }
+
+  // authorize a use on a wipe
+  authUser2Wipe(authorization: AuthUser): Observable<AuthUser>{
+    console.log(authorization)
+    return this.http.post<AuthUser>(this.wipeAddAuthUrl, authorization, this.httpOptions);
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -90,4 +97,5 @@ export class WipeService {
       return of(result as T);
     };
   }
+  
 }
