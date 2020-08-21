@@ -4,6 +4,7 @@ import { User } from '../user';
 import { Blueprint } from '../blueprint';
 import { WipeService } from '../wipe.service';
 import { CraftService } from '../craft.service';
+import { AuthUser } from '../auth_user';
 
 @Component({
   selector: 'app-crafts',
@@ -31,6 +32,7 @@ export class CraftsComponent implements OnInit {
       console.log(this.selected_wipe);
       // getting all bps for this selected wipe.
       this.getBlueprints(this.selected_wipe);
+      this.getWipePlayers(this.selected_wipe);
     });
   }
 
@@ -43,14 +45,27 @@ export class CraftsComponent implements OnInit {
     });
   }
 
+  getWipePlayers(wipe_id: number): void {
+    console.log(this.selected_wipe);
+    this.list_players = [];
+    this.wipeService.getWipePlayers(wipe_id).subscribe((rep) => {
+      console.log(rep);
+      for (var i = 0; i < rep.length; i++) {
+        this.list_players.push(rep[i].user_id);
+      }
+    });
+  }
+
   initPlayerBlueprint(): void {
+    //this.list_players = [];
+    this.dico_players_bps = {};
     for (var i = 0; i < this.wipe_bps.length; i++) {
       var key: number = this.wipe_bps[i].user_id;
       var stuff: string = this.wipe_bps[i].stuff_name;
 
       if (!(key in this.dico_players_bps)) {
         this.dico_players_bps[key] = [stuff];
-        this.list_players.push(key);
+        //this.list_players.push(key);
       } else {
         this.dico_players_bps[key].push(stuff);
       }

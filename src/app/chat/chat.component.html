@@ -2,15 +2,68 @@
 
   <app-wipes></app-wipes>
 
-  <div class="chat">
+  <div class="chat" onload="scrollToBottom(this.id)">
 
-    <ul class="messages">
+    <ul class="messages" id="divToScroll">
       <li *ngFor="let msg of messages" class="margin-b-1">
         #{{msg.user_src}} :
         {{ msg.content }}
         <span class="badge">({{ msg.date }})</span> 
       </li>
+
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+     
+      
     </ul>
+    
 
     <div class="chat-input">
       <input type="text" id="message-to-send" placeholder="Send a message ...">
@@ -19,4 +72,4 @@
   </div>
   
 </div>
- 
+ <script src="../../assets/js/scrollToBottom.js"></script>

@@ -12,13 +12,19 @@
             <div class="hr-avatar"></div>
           </div>
           <div class="user-list" id="user-list">
-            <div *ngFor="let stuff of dico_players_bps[player_id]">{{stuff}}</div>
+            <div *ngFor="let stuff of dico_players_bps[player_id]">
+              {{ stuff }}
+            </div>
           </div>
 
           <div class="crafts-btn">
             <input type="text" name="craft" id="craft" class="input-craft" />
-            <button (click)="addBlueprint()"><i class="fas fa-plus"></i></button>
-            <button (click)="removeBlueprint()"><i class="fas fa-minus"></i></button>
+            <button (click)="addBlueprint()">
+              <i class="fas fa-plus"></i>
+            </button>
+            <button (click)="removeBlueprint()">
+              <i class="fas fa-minus"></i>
+            </button>
             <button><i class="fas fa-eraser"></i></button>
           </div>
         </div>

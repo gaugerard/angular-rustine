@@ -2,7 +2,8 @@
     list-style-type: square;
     background: var(--grey);
     width: 320px;
-    min-height: calc(100vh - 60px);
+    /* min-height: calc(100vh - 60px); */
+    height: 100%;
     border-right: 2px solid var(--darkGrey);
     display: flex;
     flex-direction: column;

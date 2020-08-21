@@ -15,6 +15,7 @@ import { WipeChat } from './wipe_chat';
 export class WipeService {
   private wipesUrl = 'http://51.210.12.59:9000/wipe';
   private wipeAuthUrl = 'http://51.210.12.59:9000/auth_user/user';
+  private wipeAddAuthUrl = 'http://51.210.12.59:9000/auth_user';
   private wipeBlueprint = 'http://51.210.12.59:9000/blueprint';
   private wipeWipeChat = 'http://51.210.12.59:9000/wipe_chat';
 
@@ -60,11 +61,18 @@ export class WipeService {
       .pipe(catchError(this.handleError<Wipe>(`getWipe wipe_id=${wipe_id}`)));
   }
 
-  // get players from a wipe.
+  // get players from a wipe by looking at craft.
   getBlueprints(wipe_id: number): Observable<Blueprint[]> {
     const url = `${this.wipeBlueprint}/${wipe_id}`;
     console.log(url);
     return this.http.get<Blueprint[]>(url);
+  }
+
+  // get players from a wipe by looking at auth_user.
+  getWipePlayers(wipe_id: number): Observable<AuthUser[]> {
+    const url = `${this.wipeAddAuthUrl}/${wipe_id}`;
+    console.log(url);
+    return this.http.get<AuthUser[]>(url);
   }
 
   //get wipe_chat for a specific wipe
@@ -74,9 +82,19 @@ export class WipeService {
     return this.http.get<WipeChat[]>(url);
   }
 
-  // add a new wipe to the logged user.
-  addMessage(wipe: Wipe): Observable<Wipe> {
+  // add a new wipe.
+  addWipe(wipe: Wipe): Observable<Wipe> {
     return this.http.post<Wipe>(this.wipesUrl, wipe, this.httpOptions);
+  }
+
+  // authorize a use on a wipe
+  authUser2Wipe(authorization: AuthUser): Observable<AuthUser> {
+    console.log(authorization);
+    return this.http.post<AuthUser>(
+      this.wipeAddAuthUrl,
+      authorization,
+      this.httpOptions
+    );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
