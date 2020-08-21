@@ -6,6 +6,7 @@ import { AuthUser } from './auth_user';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Blueprint } from './blueprint';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class WipeService {
   private wipesUrl = 'http://51.210.12.59:9000/wipe';
   private wipeAuthUrl = 'http://51.210.12.59:9000/auth_user/user';
+  private wipeBlueprint = 'http://51.210.12.59:9000/blueprint';
 
   private authorized_wipe: AuthUser[] = [];
   private wipes: Wipe[] = [];
@@ -25,6 +27,7 @@ export class WipeService {
 
   // get all wipes of the logged in user.
   getWipes(user_id: number): Wipe[] {
+    this.wipes = [];
     const url = `${this.wipeAuthUrl}/${user_id}`;
     //console.log(url);
     this.http.get<AuthUser[]>(url).subscribe((rep) => {
@@ -40,11 +43,10 @@ export class WipeService {
         });
       }
       //console.log(this.wipes);
-      
     });
     //console.log(this.wipes);
     //return this.http.get<Wipe[]>(url);
-    console.log(this.wipes)
+    console.log(this.wipes);
     return this.wipes;
   }
 
@@ -54,6 +56,13 @@ export class WipeService {
     return this.http
       .get<Wipe>(url)
       .pipe(catchError(this.handleError<Wipe>(`getWipe wipe_id=${wipe_id}`)));
+  }
+
+  // get players from a wipe.
+  getBlueprints(wipe_id: number): Observable<Blueprint[]> {
+    const url = `${this.wipeBlueprint}/${wipe_id}`;
+    console.log(url);
+    return this.http.get<Blueprint[]>(url);
   }
 
   // add a new wipe to the logged user.

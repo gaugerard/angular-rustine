@@ -1,31 +1,31 @@
+
 <header>
   <!-- <div class="logo"><img src="../img/logo.svg" alt="Angular-Rustine-Logo"></div> -->
   <div class="header">
-
     
     <a routerLink="/write-message" class="logo">
       <i class="fas fa-radiation logo-icon"></i>
       <div class="ang-title">
-        {{title}}
+        {{ title }}
       </div>
     </a>
 
     <div class="right-side-menu">
-
       <div class="menu-icon">
-        <a href="../index.html">
+        <a routerLink="/wipes">
           <i class="fas fa-home"></i>
         </a>
       </div>
-      
+
       <div class="menu-icon">
-        <a routerLink="/messages">
-          <i class="fas fa-envelope"></i>
+        <a routerLink="/wipes">
+          <i class="fas fa-comment-dots"></i>
         </a>
       </div>
 
       <div class="menu-icon">
-        <a routerLink='/crafts'>
+        <!-- this does not work because it should go to  "/crafts/:wipe_id" and because there are no default wipe...-->
+        <a routerLink="/crafts">
           <i class="fas fa-tools"></i>
         </a>
       </div>
@@ -34,16 +34,11 @@
         <i class="fas fa-bars dropbtn" onclick="drop()"></i>
         <div id="myDropdown" class="dropdown-content">
           <a href="#"> <i class="fas fa-sign-in-alt"></i> Connexion</a>
-          <a href="#"> <i class="fas fa-user"></i> My profile</a>
-          <a href="#"> <i class="fas fa-envelope"></i> Messages</a>
-          <a class="nav-item nav-link" (click)="logout()">Logout</a>
+          <a routerLink="/wipes"> <i class="fas fa-user"></i> My profile</a>
+          <a (click)="logout()"> <i class="fas fa-sign-out-alt"></i> Log out</a>
         </div>
       </div>
-
     </div>
-    
-    
   </div>
 </header>
 <router-outlet></router-outlet>
-

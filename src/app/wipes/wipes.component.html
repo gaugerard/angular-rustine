@@ -1,17 +1,25 @@
-<div class="container-msg">
-  <a routerLink="/write-message" class="logo"><h2>WRITE A MESSAGE</h2></a>
-  <div class="hr-h hr-msg-pos"></div>
+<div class="container-wipes">
+  <div class="padding-top">
+    <h1><i class="fas fa-user avatar-wipes"></i>{{ user.pseudo }}</h1>
 
-  <div class="h2-flex-ico">
-    <h2>WIPES</h2>
-    <i class="fas fa-caret-down"></i>
+    <div class="hr-wipes-name"></div>
+
+    <h2>Your wipes</h2>
+
+    <div class="hr-wipes-list"></div>
+
+    <div class="your-list">
+      <input type="text" name="" id="" />
+      <a href="#"><i class="fas fa-plus"></i></a>
+    </div>
+
+    <ul class="messages">
+      <li *ngFor="let wipe of wipes">
+        <a [routerLink]="['/crafts', wipe.id ]">
+          <span class="badge">{{ wipe.server_name }}</span>
+        </a>
+        <div class="hr-li"></div>
+      </li>
+    </ul>
   </div>
-
-  <div class="hr-h hr-msg-pos"></div>
-  <ul class="messages">
-    <li *ngFor="let wipe of wipes">
-      <span class="badge">{{ wipe.server_name }}</span>
-      <div class="hr-li"></div>
-    </li>
-  </ul>
 </div>

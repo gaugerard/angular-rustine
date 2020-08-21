@@ -22,7 +22,7 @@ const routes: Routes = [
     component: MessageDetailsComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'crafts', component: CraftsComponent, canActivate: [AuthGuard] },
+  { path: 'crafts/:wipe_id', component: CraftsComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
