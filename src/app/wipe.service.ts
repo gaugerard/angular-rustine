@@ -61,11 +61,18 @@ export class WipeService {
       .pipe(catchError(this.handleError<Wipe>(`getWipe wipe_id=${wipe_id}`)));
   }
 
-  // get players from a wipe.
+  // get players from a wipe by looking at craft.
   getBlueprints(wipe_id: number): Observable<Blueprint[]> {
     const url = `${this.wipeBlueprint}/${wipe_id}`;
     console.log(url);
     return this.http.get<Blueprint[]>(url);
+  }
+
+  // get players from a wipe by looking at auth_user.
+  getWipePlayers(wipe_id: number): Observable<AuthUser[]> {
+    const url = `${this.wipeAddAuthUrl}/${wipe_id}`;
+    console.log(url);
+    return this.http.get<AuthUser[]>(url);
   }
 
   //get wipe_chat for a specific wipe
@@ -81,9 +88,13 @@ export class WipeService {
   }
 
   // authorize a use on a wipe
-  authUser2Wipe(authorization: AuthUser): Observable<AuthUser>{
-    console.log(authorization)
-    return this.http.post<AuthUser>(this.wipeAddAuthUrl, authorization, this.httpOptions);
+  authUser2Wipe(authorization: AuthUser): Observable<AuthUser> {
+    console.log(authorization);
+    return this.http.post<AuthUser>(
+      this.wipeAddAuthUrl,
+      authorization,
+      this.httpOptions
+    );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -97,5 +108,4 @@ export class WipeService {
       return of(result as T);
     };
   }
-  
 }

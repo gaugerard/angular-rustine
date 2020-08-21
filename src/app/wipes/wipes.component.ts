@@ -14,6 +14,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class WipesComponent implements OnInit {
   user: User;
   wipes: Wipe[] = [];
+  selected_wipe: number;
+  wipePlayers: number;
 
   constructor(
     private authentication: AuthenticationService,
@@ -25,6 +27,7 @@ export class WipesComponent implements OnInit {
   ngOnInit(): void {
     this.getUser();
     this.getWipes();
+    this.getPlayers();
   }
 
   getWipes(): void {
@@ -34,6 +37,18 @@ export class WipesComponent implements OnInit {
   getUser(): void {
     this.authentication.getUser().subscribe((rep) => (this.user = rep));
     console.log(this.user.pseudo);
+  }
+
+  getPlayers(): void {
+    this.route.params.subscribe((params) => {
+      this.selected_wipe = Number.parseInt(
+        this.route.snapshot.paramMap.get('wipe_id')
+      );
+      console.log(this.selected_wipe);
+      this.wipeService.getWipePlayers(this.selected_wipe).subscribe((rep) => {
+        this.wipePlayers = rep.length;
+      });
+    });
   }
 
   addWipe(server_name: string): void {
@@ -54,15 +69,14 @@ export class WipesComponent implements OnInit {
       .subscribe((wipe) => {
         this.wipes.push(wipe);
         this.authUser2Wipe(this.user.id, 6666);
-        //window.location.reload();
+        window.location.reload();
       });
 
     console.log(server_name);
   }
 
   authUser2Wipe(user_id: number, wipe_id: number): void {
-
-    console.log("====> ", localStorage.getItem('currentUser'))
+    console.log('====> ', localStorage.getItem('currentUser'));
     this.wipeService
       .authUser2Wipe({
         id: 333,
