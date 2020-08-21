@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { WipeService } from './wipe.service';
 import { AuthenticationService } from './authentication.service';
 import { User } from './user';
 
@@ -15,7 +16,8 @@ export class AppComponent {
   currentUser: User;
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    public wipeService: WipeService
   ) {
     this.authenticationService.currentUser.subscribe(
       (x) => (this.currentUser = x)

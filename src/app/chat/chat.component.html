@@ -1,75 +1,25 @@
 <div class="container-chat">
-
   <app-wipes></app-wipes>
 
   <div class="chat" onload="scrollToBottom(this.id)">
-
     <ul class="messages" id="divToScroll">
       <li *ngFor="let msg of messages" class="margin-b-1">
-        #{{msg.user_src}} :
+        #{{ msg.user_src }} :
         {{ msg.content }}
-        <span class="badge">({{ msg.date }})</span> 
+        <span class="badge">({{ msg.date }})</span>
       </li>
-
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-        <li>dd</li>
-     
-      
     </ul>
-    
 
     <div class="chat-input">
-      <input type="text" id="message-to-send" placeholder="Send a message ...">
-      <a href="#"><i class="fas fa-paper-plane"></i></a>
+      <input
+        type="text"
+        name=""
+        id="message-to-send"
+        #messageToSend
+        placeholder="Send a message ..."
+      />
+      <a (click)="sendMessage(messageToSend.value)"><i class="fas fa-paper-plane"></i></a>
     </div>
   </div>
-  
 </div>
- <script src="../../assets/js/scrollToBottom.js"></script>
+<script src="../../assets/js/scrollToBottom.js"></script>

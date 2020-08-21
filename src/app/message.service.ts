@@ -23,7 +23,7 @@ export class MessageService {
 
   getMessages(): Observable<Message[]> {
     //return this.http.get<Message[]>(this.messagessUrl);
-    console.log(this.http.get<Message[]>(this.messagessUrl));
+    //console.log(this.http.get<Message[]>(this.messagessUrl));
     return this.http.get<Message[]>(this.messagessUrl);
   }
 

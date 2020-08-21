@@ -8,6 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Blueprint } from './blueprint';
 import { WipeChat } from './wipe_chat';
+import { MessageChat } from './message_chat';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +22,8 @@ export class WipeService {
 
   private authorized_wipe: AuthUser[] = [];
   private wipes: Wipe[] = [];
+
+  public currentWiperie: number;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -85,6 +88,15 @@ export class WipeService {
   // add a new wipe.
   addWipe(wipe: Wipe): Observable<Wipe> {
     return this.http.post<Wipe>(this.wipesUrl, wipe, this.httpOptions);
+  }
+
+  // add a msg into chat of a wipe (wipe_chat).
+  addMessageChat(wipe_chat: WipeChat): Observable<WipeChat> {
+    return this.http.post<WipeChat>(
+      this.wipeWipeChat,
+      wipe_chat,
+      this.httpOptions
+    );
   }
 
   // authorize a use on a wipe

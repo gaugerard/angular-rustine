@@ -25,6 +25,7 @@ export class WipesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.router.url);
     this.getUser();
     this.getWipes();
     this.getPlayers();
@@ -34,20 +35,32 @@ export class WipesComponent implements OnInit {
     this.wipes = this.wipeService.getWipes(this.user.id);
   }
 
+  setCurrentWipe(wipe_id: number): void {
+    this.wipeService.currentWiperie = wipe_id;
+    console.log('Current wipe id : ', this.wipeService.currentWiperie);
+
+    if (this.router.url.search('chat') == 1) {
+      console.log('you are in chat');
+      this.router.navigate(['chat/', wipe_id]);
+    } else {
+      console.log('you are in crafts');
+      this.router.navigate(['crafts/', wipe_id]);
+    }
+  }
+
   getUser(): void {
     this.authentication.getUser().subscribe((rep) => (this.user = rep));
-    console.log(this.user.pseudo);
+    //console.log(this.user.pseudo);
   }
 
   getPlayers(): void {
     this.route.params.subscribe((params) => {
-      this.selected_wipe = Number.parseInt(
-        this.route.snapshot.paramMap.get('wipe_id')
-      );
-      console.log(this.selected_wipe);
-      this.wipeService.getWipePlayers(this.selected_wipe).subscribe((rep) => {
-        this.wipePlayers = rep.length;
-      });
+      //console.log(this.selected_wipe);
+      this.wipeService
+        .getWipePlayers(this.wipeService.currentWiperie)
+        .subscribe((rep) => {
+          this.wipePlayers = rep.length;
+        });
     });
   }
 
@@ -72,11 +85,11 @@ export class WipesComponent implements OnInit {
         window.location.reload();
       });
 
-    console.log(server_name);
+    //console.log(server_name);
   }
 
   authUser2Wipe(user_id: number, wipe_id: number): void {
-    console.log('====> ', localStorage.getItem('currentUser'));
+    //console.log('====> ', localStorage.getItem('currentUser'));
     this.wipeService
       .authUser2Wipe({
         id: 333,

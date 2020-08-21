@@ -32,8 +32,8 @@ export class WriteMessageComponent implements OnInit {
     sender = sender.trim();
     receiver = receiver.trim();
 
-    console.log(sender)
-    console.log(receiver)
+    //console.log(sender)
+    //console.log(receiver)
     if (!sender || !receiver) {
       window.alert('Please enter a sender/receiver!');
       return;
