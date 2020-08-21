@@ -1,8 +1,22 @@
-<app-wipes></app-wipes>
+<div class="container-chat">
 
-<ul class="messages">
-  <li *ngFor="let msg of messages">
-    <span class="badge">{{ msg.date }}</span> {{ msg.content }}
-    <div class="hr-li"></div>
-  </li>
-</ul>
+  <app-wipes></app-wipes>
+
+  <div class="chat">
+
+    <ul class="messages">
+      <li *ngFor="let msg of messages" class="margin-b-1">
+        #{{msg.user_src}} :
+        {{ msg.content }}
+        <span class="badge">({{ msg.date }})</span> 
+      </li>
+    </ul>
+
+    <div class="chat-input">
+      <input type="text" id="message-to-send" placeholder="Send a message ...">
+      <a href="#"><i class="fas fa-paper-plane"></i></a>
+    </div>
+  </div>
+  
+</div>
+ 

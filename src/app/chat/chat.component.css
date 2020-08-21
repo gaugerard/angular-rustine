@@ -1,0 +1,36 @@
+.container-chat {
+  display: flex;
+  background: var(--lowerGrey);
+  color: white;
+  
+}
+.messages {
+  width: 100%;
+  padding: 1rem;
+  overflow-y: scroll;
+  height: 100%;
+}
+.messages ul li{
+    
+}
+.chat{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.chat-input{
+    display: flex;
+    align-items: center;
+    padding: 0 0 1rem 1rem;
+}
+.chat-input input{
+    width: 85%;
+    height: 2.5rem;
+    background: var(--grey);
+    color: white;
+}
+.chat-input i{
+    font-size: 1.5rem;
+}

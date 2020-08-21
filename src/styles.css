@@ -1,164 +1,172 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* variables */
-:root{
-    --lighterGrey :rgb(224, 224, 224);
-    --lightGrey :rgb(150, 150, 150);
-    --lowerGrey :rgb(78, 78, 78);
-    --grey : rgb(66, 66, 66);
-    --darkGrey : rgb(58, 58, 58);
-    --darkerGrey : rgb(46, 46, 46);
-    --redRust :#CD4128;
-    --almostWhite : rgb(245, 245, 245);
+:root {
+  --lighterGrey: rgb(224, 224, 224);
+  --lightGrey: rgb(150, 150, 150);
+  --lowerGrey: rgb(78, 78, 78);
+  --grey: rgb(66, 66, 66);
+  --darkGrey: rgb(58, 58, 58);
+  --darkerGrey: rgb(46, 46, 46);
+  --redRust: #cd4128;
+  --almostWhite: rgb(245, 245, 245);
 }
 /* reset */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* fonts import*/
 @font-face {
-    font-family: Rust;
-    src: url(./fonts/Rust.ttf);
+  font-family: Rust;
+  src: url(./fonts/Rust.ttf);
 }
 /* generiques */
-.red{
-    color: var(--redRust);
+.red {
+  color: var(--redRust);
 }
-.black{
-    color: black;
+.black {
+  color: black;
 }
-.hover-red:hover{
-    color: var(--redRust);
+.hover-red:hover {
+  color: var(--redRust);
 }
-.hr-h{
-    width: 244px;
-    height: 2px;
-    background-color: white;
-    margin-bottom: 1rem;
-    box-shadow:  0 5px 5px 0 rgba(32, 32, 32, 0.226);
-    opacity: 0.5;
+.margin-b-1 {
+  margin-bottom: 1rem;
 }
-.hr-li{
-    width: 150px;
-    height: 1px;
-    background-color: white;
-    margin-bottom: 1rem;
-    opacity: 0.1;
+.hr-h {
+  width: 244px;
+  height: 2px;
+  background-color: white;
+  margin-bottom: 1rem;
+  box-shadow: 0 5px 5px 0 rgba(32, 32, 32, 0.226);
+  opacity: 0.5;
 }
-.padding-top{
-    padding-top: 2rem;
+.hr-li {
+  width: 150px;
+  height: 1px;
+  background-color: white;
+  margin-bottom: 1rem;
+  opacity: 0.1;
+}
+.padding-top {
+  padding-top: 2rem;
 }
 /* general */
-body{
-    background: var(--almostWhite);
-    /* background: url(./img/BGw.png); */
-    background-size: contain; 
-    font-family: 'Roboto', sans-serif;
-    background-attachment:fixed;
+body {
+  background: var(--almostWhite);
+  /* background: url(./img/BGw.png); */
+  background-size: contain;
+  font-family: "Roboto", sans-serif;
+  background-attachment: fixed;
 }
-.container{
-    display: flex;
+.container {
+  display: flex;
 }
-a{
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
+a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
 }
-li{
-    list-style-type: none;
+li {
+  list-style-type: none;
 }
-h1, h2, h3, h4{
-    color: white;
-    font-family: 'Mina', sans-serif;
-    font-weight: 300;
+h1,
+h2,
+h3,
+h4 {
+  color: white;
+  font-family: "Mina", sans-serif;
+  font-weight: 300;
 }
-button{
-    padding: 0.3rem 0.8rem 0.3rem 0.8rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background: #ddd;
-    font-size: 1.1rem;
+button {
+  padding: 0.3rem 0.8rem 0.3rem 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #ddd;
+  font-size: 1.1rem;
 }
-button:hover{
-    background: var(--redRust);
-    color: white;
+button:hover {
+  background: var(--redRust);
+  color: white;
 }
-input{
-    border-radius: 5px;
-    padding: 0.3rem;
-    border: none;
-    margin: 0 0.5rem 0 0.5rem;
+input {
+  border-radius: 5px;
+  padding: 0.3rem;
+  border: none;
+  margin: 0 0.5rem 0 0.5rem;
 }
-header{
-    position: sticky;
-    top: 0;
-    z-index: 1;
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 /* focus */
-textarea:focus, input:focus, button{
-    outline: none;
+textarea:focus,
+input:focus,
+button {
+  outline: none;
 }
 
 /* menu */
-.h2-flex-ico{
-    display: flex;
-    margin-top: 2.5rem;
+.h2-flex-ico {
+  display: flex;
+  margin-top: 2.5rem;
 }
-.h2-flex-ico i{
-    color: white;
-    font-size: 1.5rem;
-    margin-left: 0.8rem;
-    transform: translateY(5px);
+.h2-flex-ico i {
+  color: white;
+  font-size: 1.5rem;
+  margin-left: 0.8rem;
+  transform: translateY(5px);
 }
-.hover-red h2{
-    margin-top: 0.5rem;
+.hover-red h2 {
+  margin-top: 0.5rem;
 }
-.hover-red h2:hover{
-    color: var(--redRust);
+.hover-red h2:hover {
+  color: var(--redRust);
 }
 
 /* goTop */
 
-.topVisible{
-    color: white;
-    opacity: 1;
-    height: 50px;
-    width: 50px;   
-    background-color: var(--redRust);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    cursor: pointer;
-    transition: 1s;
+.topVisible {
+  color: white;
+  opacity: 1;
+  height: 50px;
+  width: 50px;
+  background-color: var(--redRust);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  transition: 1s;
 }
-.topInvisible{
-    opacity: 0;
+.topInvisible {
+  opacity: 0;
 }
 
 /* footer */
 .wrapper {
-    min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
 }
 
-footer{
-    background: var(--darkGrey);
-    padding: 1rem 1rem;
-    color: white;
-    text-align: center;
-    position: static;
-    width: 100%;
-    bottom: 0;
+footer {
+  background: var(--darkGrey);
+  padding: 1rem 1rem;
+  color: white;
+  text-align: center;
+  position: static;
+  width: 100%;
+  bottom: 0;
 }
-footer p{
-    font-weight: 300;
-    margin: 0.3rem;
+footer p {
+  font-weight: 300;
+  margin: 0.3rem;
 }
 
