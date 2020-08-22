@@ -67,24 +67,42 @@ export class CraftsComponent implements OnInit {
     }
   }
 
-  addBlueprint(): void {
-    const stuff_name: string = 'Assault Rifle'; //test value
-
-    this.craftService
-      .addBlueprint({
-        // todo, generate id for mysql.
-        wipe_id: this.selected_wipe,
-        user_id: this.authenticationService.currentUserValue.id,
-        stuff_name: stuff_name,
-      } as Blueprint)
-      .subscribe((bp) => {
-        this.getBlueprints(this.selected_wipe);
-      });
+  addBlueprint(user_id: number, stuff_name: string): void {
+    if (!stuff_name) {
+      
+      window.alert('Insert an existing blueprint name (ex: Assault Rifle)');
+      return;
+    } else {
+      console.log(stuff_name);
+      this.craftService
+        .addBlueprint({
+          // todo, generate id for mysql.
+          wipe_id: this.selected_wipe,
+          //user_id: this.authenticationService.currentUserValue.id,
+          user_id: user_id,
+          stuff_name: stuff_name,
+        } as Blueprint)
+        .subscribe((bp) => {
+          this.getBlueprints(this.selected_wipe);
+        });
+    }
   }
 
-  removeBlueprint(bp_id: number): void {
-    this.craftService.removeBlueprint(bp_id).subscribe((bp) => {
-      this.getBlueprints(this.selected_wipe);
-    });
+  removeBlueprint(wipe_id: number, user_id: number, stuff: string): void {
+    for (var i = 0; i < this.wipe_bps.length; i++) {
+      var bp: Blueprint = this.wipe_bps[i];
+      console.log(wipe_id, user_id, stuff);
+      if (
+        bp.wipe_id == wipe_id &&
+        bp.user_id == user_id &&
+        bp.stuff_name == stuff
+      ) {
+        var bp_id: number = bp.id;
+        this.craftService.removeBlueprint(bp_id).subscribe((bp) => {
+          console.log('Deleted : ', bp);
+          this.getBlueprints(this.selected_wipe);
+        });
+      }
+    }
   }
 }

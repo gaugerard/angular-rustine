@@ -13,25 +13,20 @@
           </div>
           <div class="user-list" id="user-list">
             <div *ngFor="let stuff of dico_players_bps[player_id]">
-              
-              <a>
+              <a (click)="removeBlueprint(this.selected_wipe, player_id, stuff)">
                 <i class="fas fa-times"></i>
               </a>
-              
-              
+
               {{ stuff }}
             </div>
           </div>
 
           <div class="crafts-btn">
-            <input type="text" name="craft" id="craft" class="input-craft" />
-            <button (click)="addBlueprint()">
-              <div> 
+            <input type="text" #craft_name name="craft" id="craft" class="input-craft"/>
+            <button (click)="addBlueprint(player_id, craft_name.value)">
+              <div>
                 <i class="fas fa-plus"></i>
               </div>
-            </button>
-            <button (click)="removeBlueprint()">
-              <i class="fas fa-minus"></i>
             </button>
             <button><i class="fas fa-eraser"></i></button>
           </div>

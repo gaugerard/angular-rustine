@@ -82,6 +82,14 @@ export class WipesComponent implements OnInit {
       });
   }
 
+  removeAuth2wipe(user_id: number, wipe_id: number): void {
+    this.wipeService.removeAuthUser2Wipe(user_id, wipe_id).subscribe((auth) => {
+      console.log('User removed from wipe: ', auth);
+      this.getWipes();
+      this.wipeService.removeEmptyWipe(wipe_id);
+    });
+  }
+
   authUser2Wipe(user_id: number, wipe_id: number): void {
     this.wipeService
       .authUser2Wipe({

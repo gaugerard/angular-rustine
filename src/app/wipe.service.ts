@@ -103,6 +103,33 @@ export class WipeService {
     );
   }
 
+  // checks if a wipe still has player in it (after delete operation) and if not, it deletes the wipe from the db.
+  removeEmptyWipe(wipe_id: number): void {
+    const url = `${this.wipeAddAuthUrl}/${wipe_id}`;
+    this.http.get(url).subscribe((rep) => {
+      if (rep.valueOf.length == 0) {
+        console.log('wipe needs to be deleted');
+        const delete_wipe_url = `${this.wipesUrl}/${wipe_id}`;
+        this.http.delete(delete_wipe_url).subscribe((rep) => {
+          console.log(rep);
+        });
+      }
+    });
+  }
+
+  removeAuthUser2Wipe(user_id: number, wipe_id: number): Observable<AuthUser> {
+    for (var i = 0; i < this.authorized_wipe.length; i++) {
+      var auth_id = this.authorized_wipe[i];
+      if (user_id == auth_id.user_id && wipe_id == auth_id.wipe_id) {
+        console.log('===> user ', user_id);
+        console.log('===> wipe ', wipe_id);
+        console.log('===> auth_id ', auth_id.id);
+        const url = `${this.wipeAddAuthUrl}/${auth_id.id}`;
+        return this.http.delete<AuthUser>(url);
+      }
+    }
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
