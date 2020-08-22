@@ -32,9 +32,7 @@
   background: var(--darkGrey); 
 }
 
-.messages ul li{
-    
-}
+
 .chat{
     display: flex;
     flex-direction: column;

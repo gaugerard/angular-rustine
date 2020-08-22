@@ -12,10 +12,25 @@
         <div>
           <ul class="messages">
             <li *ngFor="let wipe of wipes">
-              <a [routerLink]="['/crafts', wipe.id]">
-                <span class="badge">{{ wipe.server_name }}</span>
-              </a>
-              <a><i class="fas fa-user-plus"></i></a>
+              <div class="server-name">
+                <a [routerLink]="['/crafts', wipe.id]">
+                  <span class="badge">{{ wipe.server_name }}</span>
+                </a>
+
+                <!--dropdown-->
+                <div class="drop-wipe" >
+                 
+                  <i class="fas fa-ellipsis-h btn-drop-wipe" onclick="dropWipe()"></i>
+                  
+
+                  <div id="drop-wipe" class="drop-wipe-content">
+                    <a href="#">Add a player</a>
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                  </div>
+                </div>
+              </div>
+
               <div class="hr-li"></div>
             </li>
           </ul>
@@ -44,3 +59,5 @@
     <p>{{ wipePlayers }}</p>
   </div>
 </div>
+
+<script src="./assets/js/dropWipe.js"></script>

@@ -2,9 +2,8 @@
 
   <app-wipes></app-wipes>
 
-  <div class="chat" onload="scrollToBottom(this.id)">
-
-    <ul class="messages" id="divToScroll">
+  <div class="chat">
+    <ul class="messages" id="messages">
       <li *ngFor="let msg of messages" class="margin-b-1">
         #{{msg.user_src}} :
         {{ msg.content }}
@@ -60,8 +59,6 @@
         <li>dd</li>
         <li>dd</li>
         <li>dd</li>
-     
-      
     </ul>
     
 
@@ -69,7 +66,12 @@
       <input type="text" id="message-to-send" placeholder="Send a message ...">
       <a href="#"><i class="fas fa-paper-plane"></i></a>
     </div>
+    
   </div>
   
 </div>
- <script src="../../assets/js/scrollToBottom.js"></script>
+
+
+
+
+ 

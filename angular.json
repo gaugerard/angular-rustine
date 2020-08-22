@@ -30,7 +30,7 @@
               "src/assets/js/messages.js",
               "src/assets/js/dropdown.js",
               "src/assets/js/goTop.js",
-              "src/assets/js/scrollToBottom.js"
+              "src/assets/js/dropWipe.js"
             ]
           },
           "configurations": {
