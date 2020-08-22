@@ -62,7 +62,6 @@ export class ChatComponent implements OnInit {
 
     this.messageChatService
       .sendMessage({
-        id: 2000,
         content: content,
         date: new Date(today),
         //user_src: +localStorage.getItem('currentUser'), ==> does not work
@@ -71,8 +70,7 @@ export class ChatComponent implements OnInit {
       .subscribe((message) => {
         this.wipeService
           .addMessageChat({
-            id: 7777,
-            msg_id: 2000,
+            msg_id: message.id,
             wipe_id: this.selected_wipe,
           } as WipeChat)
           .subscribe((wipechat) => {

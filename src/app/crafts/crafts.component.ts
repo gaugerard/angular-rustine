@@ -5,6 +5,7 @@ import { Blueprint } from '../blueprint';
 import { WipeService } from '../wipe.service';
 import { CraftService } from '../craft.service';
 import { AuthUser } from '../auth_user';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-crafts',
@@ -16,6 +17,7 @@ export class CraftsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private wipeService: WipeService,
+    private authenticationService: AuthenticationService,
     private craftService: CraftService
   ) {}
 
@@ -72,17 +74,13 @@ export class CraftsComponent implements OnInit {
   }
 
   addBlueprint(): void {
-    const wipe_id: number = 2068; //test values
-    const bp_id: number = 1000; //test value
-    const user_id: number = 42; //test value
-    const stuff_name: string = 'Crossbow'; //test value
+    const stuff_name: string = 'Assault Rifle'; //test value
 
     this.craftService
       .addBlueprint({
         // todo, generate id for mysql.
-        wipe_id: wipe_id,
-        id: bp_id,
-        user_id: user_id,
+        wipe_id: this.selected_wipe,
+        user_id: this.authenticationService.currentUserValue.id,
         stuff_name: stuff_name,
       } as Blueprint)
       .subscribe((bp) => {
@@ -92,8 +90,7 @@ export class CraftsComponent implements OnInit {
       });
   }
 
-  removeBlueprint(): void {
-    const bp_id: number = 1000; //test value
+  removeBlueprint(bp_id: number): void {
     this.craftService.removeBlueprint(bp_id).subscribe((bp) => {
       //console.log('bp removed');
       this.getBlueprints(this.selected_wipe);

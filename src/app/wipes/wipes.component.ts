@@ -26,6 +26,7 @@ export class WipesComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.router.url);
+    this.selected_wipe = this.wipeService.currentWiperie;
     this.getUser();
     this.getWipes();
     this.getPlayers();
@@ -66,22 +67,19 @@ export class WipesComponent implements OnInit {
 
   addWipe(server_name: string): void {
     server_name = server_name.trim();
-    const password = '564654';
 
-    if (!server_name || !password) {
+    if (!server_name) {
       window.alert('Please enter a server_name!');
       return;
     }
 
     this.wipeService
       .addWipe({
-        id: 6666,
-        password: password,
         server_name: server_name,
       } as Wipe)
       .subscribe((wipe) => {
         this.wipes.push(wipe);
-        this.authUser2Wipe(this.user.id, 6666);
+        this.authUser2Wipe(this.user.id, wipe.id);
         window.location.reload();
       });
 
@@ -92,7 +90,7 @@ export class WipesComponent implements OnInit {
     //console.log('====> ', localStorage.getItem('currentUser'));
     this.wipeService
       .authUser2Wipe({
-        id: 333,
+        //id: 333,
         wipe_id: wipe_id,
         user_id: user_id,
       } as AuthUser)
