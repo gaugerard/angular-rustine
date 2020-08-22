@@ -13,7 +13,7 @@
           <ul class="messages">
             <li *ngFor="let wipe of wipes">
               <div class="server-name">
-                <a [routerLink]="['/crafts', wipe.id]">
+                <a (click)="setCurrentWipe(wipe.id)">
                   <span class="badge">{{ wipe.server_name }}</span>
                 </a>
 
@@ -24,13 +24,18 @@
                   
 
                   <div id="drop-wipe" class="drop-wipe-content">
-                    <a href="#">Add a player</a>
-                    <a href="#">Edit</a>
-                    <a href="#">Delete</a>
+                    <a href="#"><i class="fas fa-user-plus"></i>Add a player  </a>
+                    <a href="#"><i class="fas fa-edit"></i>Edit</a>
+                    <a href="#"><i class="far fa-trash-alt"></i>Delete</a>
                   </div>
                 </div>
+
+
+                
               </div>
 
+              
+        
               <div class="hr-li"></div>
             </li>
           </ul>
@@ -44,9 +49,9 @@
             #server_name
             placeholder="Add a new server"
           />
-          <a (click)="addWipe(server_name.value)"
-            ><i class="fas fa-plus-square"></i
-          ></a>
+          <a (click)="addWipe(server_name.value)">
+            <i class="fas fa-plus-square"></i>
+          </a>
         </div>
       </div>
     </div>

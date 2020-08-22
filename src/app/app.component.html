@@ -16,15 +16,13 @@
       </div>
 
       <div class="menu-icon">
-        <!-- Hard coded for testing purpose... need to modify this-->
-        <a routerLink="/chat/2068">
+        <a [routerLink]="['chat/', wipeService.currentWiperie]">
           <i class="fas fa-comment-dots"></i>
         </a>
       </div>
 
       <div class="menu-icon">
-        <!-- this does not work because it should go to  "/crafts/:wipe_id" and because there are no default wipe...-->
-        <a routerLink="/crafts">
+        <a [routerLink]="['crafts/', wipeService.currentWiperie]">
           <i class="fas fa-tools"></i>
         </a>
       </div>

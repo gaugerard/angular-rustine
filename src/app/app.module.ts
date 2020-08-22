@@ -3,14 +3,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MessagesComponent } from './messages/messages.component';
-import { MessageDetailsComponent } from './message-details/message-details.component';
 import { AppRoutingModule } from './app-routing.module';
-import { WriteMessageComponent } from './write-message/write-message.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 import { CraftsComponent } from './crafts/crafts.component';
 import { LoginComponent } from './login/login.component';
 import { WipesComponent } from './wipes/wipes.component';
@@ -19,9 +14,6 @@ import { ChatComponent } from './chat/chat.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MessagesComponent,
-    MessageDetailsComponent,
-    WriteMessageComponent,
     CraftsComponent,
     LoginComponent,
     WipesComponent,

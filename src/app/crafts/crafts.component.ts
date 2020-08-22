@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { User } from '../user';
 import { Blueprint } from '../blueprint';
 import { WipeService } from '../wipe.service';
 import { CraftService } from '../craft.service';
-import { AuthUser } from '../auth_user';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-crafts',
@@ -16,6 +15,7 @@ export class CraftsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private wipeService: WipeService,
+    private authenticationService: AuthenticationService,
     private craftService: CraftService
   ) {}
 
@@ -26,9 +26,7 @@ export class CraftsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.selected_wipe = Number.parseInt(
-        this.route.snapshot.paramMap.get('wipe_id')
-      );
+      this.selected_wipe = this.wipeService.currentWiperie;
       console.log(this.selected_wipe);
       // getting all bps for this selected wipe.
       this.getBlueprints(this.selected_wipe);
@@ -40,16 +38,13 @@ export class CraftsComponent implements OnInit {
     this.wipe_bps = [];
     this.wipeService.getBlueprints(wipe_id).subscribe((bps) => {
       this.wipe_bps = bps;
-      console.log(this.wipe_bps);
       this.initPlayerBlueprint();
     });
   }
 
   getWipePlayers(wipe_id: number): void {
-    console.log(this.selected_wipe);
     this.list_players = [];
     this.wipeService.getWipePlayers(wipe_id).subscribe((rep) => {
-      console.log(rep);
       for (var i = 0; i < rep.length; i++) {
         this.list_players.push(rep[i].user_id);
       }
@@ -70,36 +65,26 @@ export class CraftsComponent implements OnInit {
         this.dico_players_bps[key].push(stuff);
       }
     }
-    console.log(this.dico_players_bps);
   }
 
   addBlueprint(): void {
-    const wipe_id: number = 2068; //test values
-    const bp_id: number = 1000; //test value
-    const user_id: number = 42; //test value
-    const stuff_name: string = 'Crossbow'; //test value
+    const stuff_name: string = 'Assault Rifle'; //test value
 
     this.craftService
       .addBlueprint({
         // todo, generate id for mysql.
-        wipe_id: wipe_id,
-        id: bp_id,
-        user_id: user_id,
+        wipe_id: this.selected_wipe,
+        user_id: this.authenticationService.currentUserValue.id,
         stuff_name: stuff_name,
       } as Blueprint)
       .subscribe((bp) => {
-        console.log('bp added');
         this.getBlueprints(this.selected_wipe);
-        window.location.reload();
       });
   }
 
-  removeBlueprint(): void {
-    const bp_id: number = 1000; //test value
+  removeBlueprint(bp_id: number): void {
     this.craftService.removeBlueprint(bp_id).subscribe((bp) => {
-      console.log('bp removed');
       this.getBlueprints(this.selected_wipe);
-      window.location.reload();
     });
   }
 }

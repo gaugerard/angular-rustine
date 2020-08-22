@@ -94,6 +94,9 @@ li {
   color: white;
 }
 
+.fa-plus-square{
+  margin-left: 0.8rem;
+}
 .add-wipe {
   display: flex;
   justify-content: flex-start;
@@ -155,6 +158,9 @@ li {
 .drop-wipe-content a{
   margin: 0.5rem;
   display: block;
+}
+.drop-wipe-content a i{
+  margin-right: 0.6rem;
 }
 
 .show {display: block;}
