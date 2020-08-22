@@ -41,12 +41,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    //console.log('onSubmit');
     this.submitted = true;
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
-      //console.log('not valid form');
       return;
     }
 
@@ -57,16 +55,13 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: (data) => {
           if (data) {
-            //console.log("Access granted!");
             this.router.navigate(['/wipes']);
           } else {
             // get return url from route parameters or default to '/'
-            //console.log("Access Denied...");
             this.router.navigate(['/']);
           }
         },
         error: (error) => {
-          //console.log('error 61');
           this.loading = false;
         },
       });

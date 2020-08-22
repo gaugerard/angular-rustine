@@ -35,23 +35,17 @@ export class WipeService {
   getWipes(user_id: number): Wipe[] {
     this.wipes = [];
     const url = `${this.wipeAuthUrl}/${user_id}`;
-    //console.log(url);
     this.http.get<AuthUser[]>(url).subscribe((rep) => {
       this.authorized_wipe = rep;
-      //console.log(this.authorized_wipe);
       var i;
       for (i = 0; i < this.authorized_wipe.length; i++) {
         var wipe_id = this.authorized_wipe[i].wipe_id;
         console.log(wipe_id);
         this.getWipe(wipe_id).subscribe((rep) => {
           this.wipes.push(rep);
-          //console.log(this.wipes);
         });
       }
-      //console.log(this.wipes);
     });
-    //console.log(this.wipes);
-    //return this.http.get<Wipe[]>(url);
     console.log(this.wipes);
     return this.wipes;
   }

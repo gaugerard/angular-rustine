@@ -51,12 +51,10 @@ export class WipesComponent implements OnInit {
 
   getUser(): void {
     this.authentication.getUser().subscribe((rep) => (this.user = rep));
-    //console.log(this.user.pseudo);
   }
 
   getPlayers(): void {
     this.route.params.subscribe((params) => {
-      //console.log(this.selected_wipe);
       this.wipeService
         .getWipePlayers(this.wipeService.currentWiperie)
         .subscribe((rep) => {
@@ -79,18 +77,14 @@ export class WipesComponent implements OnInit {
       } as Wipe)
       .subscribe((wipe) => {
         this.wipes.push(wipe);
+        console.log(this.user.id, wipe.id);
         this.authUser2Wipe(this.user.id, wipe.id);
-        window.location.reload();
       });
-
-    //console.log(server_name);
   }
 
   authUser2Wipe(user_id: number, wipe_id: number): void {
-    //console.log('====> ', localStorage.getItem('currentUser'));
     this.wipeService
       .authUser2Wipe({
-        //id: 333,
         wipe_id: wipe_id,
         user_id: user_id,
       } as AuthUser)

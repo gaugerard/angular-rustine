@@ -16,7 +16,6 @@ export class MessageChatService {
 
   getMessage(msg_id: number): Observable<MessageChat> {
     const url = `${this.messagesChatUrl}/${msg_id}`;
-    //console.log(url);
     return this.http
       .get<MessageChat>(url)
       .pipe(
@@ -25,7 +24,6 @@ export class MessageChatService {
   }
 
   sendMessage(msg: MessageChat): Observable<MessageChat> {
-    //console.log(msg);
     return this.http.post<MessageChat>(this.messagesChatUrl, msg);
   }
 

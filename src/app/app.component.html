@@ -1,7 +1,7 @@
 <header>
   <!-- <div class="logo"><img src="../img/logo.svg" alt="Angular-Rustine-Logo"></div> -->
   <div class="header">
-    <a routerLink="/write-message" class="logo">
+    <a routerLink="/wipes" class="logo">
       <i class="fas fa-radiation logo-icon"></i>
       <div class="ang-title">
         {{ title }}
@@ -16,14 +16,12 @@
       </div>
 
       <div class="menu-icon">
-        <!-- Hard coded for testing purpose... need to modify this-->
         <a [routerLink]="['chat/', wipeService.currentWiperie]">
           <i class="fas fa-comment-dots"></i>
         </a>
       </div>
 
       <div class="menu-icon">
-        <!-- this does not work because it should go to  "/crafts/:wipe_id" and because there are no default wipe...-->
         <a [routerLink]="['crafts/', wipeService.currentWiperie]">
           <i class="fas fa-tools"></i>
         </a>

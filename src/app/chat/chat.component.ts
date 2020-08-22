@@ -32,16 +32,13 @@ export class ChatComponent implements OnInit {
       // getting all bps for this selected wipe.
       this.getWipeChat(this.selected_wipe);
     });
-    //console.log('selected_wipe == ', this.selected_wipe);
   }
 
   getWipeChat(wipe_id: number): void {
     this.wipe_chats = [];
     this.wipeService.getWipeChat(wipe_id).subscribe((wc) => {
       this.wipe_chats = wc;
-      //console.log(this.wipe_chats);
       this.initMessages();
-      //console.log(this.messages);
     });
   }
 
@@ -52,7 +49,6 @@ export class ChatComponent implements OnInit {
       this.messageChatService.getMessage(key).subscribe((msg) => {
         var message: MessageChat = msg;
         this.messages.push(msg);
-        //console.log('added msg');
       });
     }
   }
@@ -64,7 +60,6 @@ export class ChatComponent implements OnInit {
       .sendMessage({
         content: content,
         date: new Date(today),
-        //user_src: +localStorage.getItem('currentUser'), ==> does not work
         user_src: this.authenticationService.currentUserValue.id,
       } as MessageChat)
       .subscribe((message) => {
@@ -75,7 +70,6 @@ export class ChatComponent implements OnInit {
           } as WipeChat)
           .subscribe((wipechat) => {
             this.messages.push(message);
-            window.location.reload();
           });
       });
   }

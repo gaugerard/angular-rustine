@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { User } from '../user';
 import { Blueprint } from '../blueprint';
 import { WipeService } from '../wipe.service';
 import { CraftService } from '../craft.service';
-import { AuthUser } from '../auth_user';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({
@@ -40,16 +38,13 @@ export class CraftsComponent implements OnInit {
     this.wipe_bps = [];
     this.wipeService.getBlueprints(wipe_id).subscribe((bps) => {
       this.wipe_bps = bps;
-      //console.log(this.wipe_bps);
       this.initPlayerBlueprint();
     });
   }
 
   getWipePlayers(wipe_id: number): void {
-    //console.log(this.selected_wipe);
     this.list_players = [];
     this.wipeService.getWipePlayers(wipe_id).subscribe((rep) => {
-      //console.log(rep);
       for (var i = 0; i < rep.length; i++) {
         this.list_players.push(rep[i].user_id);
       }
@@ -70,7 +65,6 @@ export class CraftsComponent implements OnInit {
         this.dico_players_bps[key].push(stuff);
       }
     }
-    //console.log(this.dico_players_bps);
   }
 
   addBlueprint(): void {
@@ -84,17 +78,13 @@ export class CraftsComponent implements OnInit {
         stuff_name: stuff_name,
       } as Blueprint)
       .subscribe((bp) => {
-        //console.log('bp added');
         this.getBlueprints(this.selected_wipe);
-        window.location.reload();
       });
   }
 
   removeBlueprint(bp_id: number): void {
     this.craftService.removeBlueprint(bp_id).subscribe((bp) => {
-      //console.log('bp removed');
       this.getBlueprints(this.selected_wipe);
-      window.location.reload();
     });
   }
 }

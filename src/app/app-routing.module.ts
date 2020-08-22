@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WipesComponent } from './wipes/wipes.component';
-import { WriteMessageComponent } from './write-message/write-message.component';
-import { MessageDetailsComponent } from './message-details/message-details.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './_helpers/auth.guard';
 import { CraftsComponent } from './crafts/crafts.component';
 import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
-  //{ path: '', redirectTo: '/messages', pathMatch: 'full' },
   {
     path: '',
     redirectTo: '/login',
@@ -22,16 +19,6 @@ const routes: Routes = [
   {
     path: 'wipes',
     component: WipesComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'write-message',
-    component: WriteMessageComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'detail/:id',
-    component: MessageDetailsComponent,
     canActivate: [AuthGuard],
   },
   {
