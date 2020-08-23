@@ -6,56 +6,57 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-create-account',
+  templateUrl: './create-account.component.html',
+  styleUrls: ['./create-account.component.css'],
 })
-export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+export class CreateAccountComponent implements OnInit {
+  newAccountForm: FormGroup;
   isLoggedIn = false;
   loading = false;
   submitted = false;
   error = '';
 
   constructor(
+    private authenticationService: AuthenticationService,
     private formBuilder: FormBuilder,
-    private router: Router,
-    private authenticationService: AuthenticationService
-  ) {
-    // redirect to home if already logged in
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }
-  }
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
+    this.newAccountForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
+      repeatPassword: ['', Validators.required],
     });
   }
 
   // convenience getter for easy access to form fields
   get f() {
-    return this.loginForm.controls;
+    return this.newAccountForm.controls;
   }
 
   onSubmit(): void {
+    console.log('a');
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.loginForm.invalid) {
+    if (
+      this.newAccountForm.invalid ||
+      this.f.password.value != this.f.repeatPassword.value
+    ) {
+      console.log('b');
       return;
     }
-
+    console.log('c');
     this.loading = true;
     this.authenticationService
-      .login(this.f.username.value, this.f.password.value)
+      .createAccount(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe({
         next: (data) => {
           if (data) {
-            this.router.navigate(['/wipes']);
+            this.router.navigate(['/login']);
           } else {
             // get return url from route parameters or default to '/'
             this.router.navigate(['/']);

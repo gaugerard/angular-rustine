@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './_helpers/auth.guard';
 import { CraftsComponent } from './crafts/crafts.component';
 import { ChatComponent } from './chat/chat.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'newAccount',
+    component: CreateAccountComponent,
   },
   {
     path: 'wipes',

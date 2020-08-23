@@ -1,0 +1,66 @@
+<div class="wrapper">
+  <!--pour footer-->
+
+  <div class="login-panel">
+    <div class="panel-left">
+      <h1 class="black">Create new account</h1>
+
+      <form
+        [formGroup]="newAccountForm"
+        (ngSubmit)="onSubmit()"
+        class="login-form"
+      >
+        <div class="username">
+          <label for="username" class="label-form">USERNAME</label>
+          <input
+            type="text"
+            formControlName="username"
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+          />
+          <div *ngIf="submitted && f.username.errors">
+            <div *ngIf="f.username.errors.required" class="error">
+              ⚠ Username is required
+            </div>
+          </div>
+        </div>
+        <div class="password">
+          <label for="password" class="label-form">PASSWORD</label>
+          <input
+            type="password"
+            formControlName="password"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+          />
+          <div *ngIf="submitted && f.password.errors">
+            <div *ngIf="f.password.errors.required" class="error">
+              ⚠ Password is required
+            </div>
+          </div>
+        </div>
+
+        <div class="repeatPassword">
+          <label for="repeatPassword" class="label-form">REPEAT PASSWORD</label>
+          <input
+            type="Password"
+            formControlName="repeatPassword"
+            [ngClass]="{ 'is-invalid': submitted && f.repeatPassword.errors }"
+          />
+          <div *ngIf="submitted && f.repeatPassword.errors">
+            <div *ngIf="f.repeatPassword.errors.required" class="error">
+              ⚠ Password is required
+            </div>
+          </div>
+        </div>
+
+        <button [disabled]="loading">
+          <span *ngIf="loading"></span>
+          Login
+        </button>
+        <div *ngIf="error">
+          {{ error }}
+        </div>
+      </form>
+    </div>
+
+    <div class="panel-right"></div>
+  </div>
+</div>

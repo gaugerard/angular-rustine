@@ -13,7 +13,9 @@
           </div>
           <div class="user-list" id="user-list">
             <div *ngFor="let stuff of dico_players_bps[player_id]">
-              <a (click)="removeBlueprint(this.selected_wipe, player_id, stuff)">
+              <a
+                (click)="removeBlueprint(this.selected_wipe, player_id, stuff)"
+              >
                 <i class="fas fa-times"></i>
               </a>
 
@@ -22,8 +24,26 @@
           </div>
 
           <div class="crafts-btn">
-            <input type="text" #craft_name name="craft" id="craft" class="input-craft"/>
-            <button (click)="addBlueprint(player_id, craft_name.value)">
+            <form class="example-form">
+              <input
+                type="text"
+                placeholder="Pick one"
+                aria-label="Number"
+                matInput
+                [formControl]="control"
+                [matAutocomplete]="auto"
+              />
+
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option
+                  *ngFor="let option of filteredOptions | async"
+                  [value]="option"
+                >
+                  {{ option }}
+                </mat-option>
+              </mat-autocomplete>
+            </form>
+            <button (click)="addBlueprint(player_id, control.value)">
               <div>
                 <i class="fas fa-plus"></i>
               </div>

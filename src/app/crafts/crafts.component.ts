@@ -5,6 +5,11 @@ import { WipeService } from '../wipe.service';
 import { CraftService } from '../craft.service';
 import { AuthenticationService } from '../authentication.service';
 
+import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { startWith, map } from 'rxjs/operators';
+import { StuffService } from '../stuff.service';
+
 @Component({
   selector: 'app-crafts',
   templateUrl: './crafts.component.html',
@@ -16,7 +21,8 @@ export class CraftsComponent implements OnInit {
     private router: Router,
     private wipeService: WipeService,
     private authenticationService: AuthenticationService,
-    private craftService: CraftService
+    private craftService: CraftService,
+    private stuffService: StuffService
   ) {}
 
   selected_wipe: number;
@@ -24,7 +30,18 @@ export class CraftsComponent implements OnInit {
   dico_players_bps = {};
   list_players: number[] = [];
 
+  control = new FormControl();
+  l_stuff: string[];
+  filteredOptions: Observable<string[]>;
+
   ngOnInit(): void {
+    this.filteredOptions = this.control.valueChanges.pipe(
+      startWith(''),
+      map((value) => this._filter(value))
+    );
+
+    this.getStuff();
+
     this.route.params.subscribe((params) => {
       this.selected_wipe = this.wipeService.currentWiperie;
       console.log(this.selected_wipe);
@@ -34,12 +51,29 @@ export class CraftsComponent implements OnInit {
     });
   }
 
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.l_stuff.filter((option) =>
+      option.toLowerCase().includes(filterValue)
+    );
+  }
+
+  private _normalizeValue(value: string): string {
+    return value.toLowerCase().replace(/\s/g, '');
+  }
+
   getBlueprints(wipe_id: number): void {
     this.wipe_bps = [];
     this.wipeService.getBlueprints(wipe_id).subscribe((bps) => {
       this.wipe_bps = bps;
       this.initPlayerBlueprint();
     });
+  }
+
+  getStuff(): void {
+    this.l_stuff = [];
+    this.l_stuff = this.stuffService.getStuff();
   }
 
   getWipePlayers(wipe_id: number): void {
@@ -69,7 +103,6 @@ export class CraftsComponent implements OnInit {
 
   addBlueprint(user_id: number, stuff_name: string): void {
     if (!stuff_name) {
-      
       window.alert('Insert an existing blueprint name (ex: Assault Rifle)');
       return;
     } else {
