@@ -30,25 +30,19 @@
                 placeholder="Pick one"
                 aria-label="Number"
                 matInput
+                #input_id
                 [formControl]="control"
-                [matAutocomplete]="auto"
               />
-
-              <mat-autocomplete #auto="matAutocomplete">
+              <div *ngIf="input_id.value">
                 <mat-option
                   *ngFor="let option of filteredOptions | async"
                   [value]="option"
                 >
-                  {{ option }}
+                  <a (click)="addBlueprint(player_id, option)">{{ option }}</a>
                 </mat-option>
-              </mat-autocomplete>
-            </form>
-            <button (click)="addBlueprint(player_id, control.value)">
-              <div>
-                <i class="fas fa-plus"></i>
               </div>
-            </button>
-            <button><i class="fas fa-eraser"></i></button>
+            </form>
+            <button (click)="removeAllBlueprint(player_id)"><i class="fas fa-eraser"></i></button>
           </div>
         </div>
       </li>

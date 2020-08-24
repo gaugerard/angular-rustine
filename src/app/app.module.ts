@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,7 +14,7 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 
 import { FormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +32,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     AppRoutingModule,
     HttpClientModule,
     MatAutocompleteModule,
+    MatInputModule,
 
     /*// The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
@@ -40,7 +41,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
       dataEncapsulation: false,
     }),*/
   ],
+  exports: [MatAutocompleteModule, MatInputModule],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

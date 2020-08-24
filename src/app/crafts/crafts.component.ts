@@ -35,6 +35,7 @@ export class CraftsComponent implements OnInit {
   filteredOptions: Observable<string[]>;
 
   ngOnInit(): void {
+    
     this.filteredOptions = this.control.valueChanges.pipe(
       startWith(''),
       map((value) => this._filter(value))
@@ -107,6 +108,7 @@ export class CraftsComponent implements OnInit {
       return;
     } else {
       console.log(stuff_name);
+      this.control.setValue('');
       this.craftService
         .addBlueprint({
           // todo, generate id for mysql.
@@ -118,6 +120,20 @@ export class CraftsComponent implements OnInit {
         .subscribe((bp) => {
           this.getBlueprints(this.selected_wipe);
         });
+    }
+  }
+
+  removeAllBlueprint(user_id: number): void {
+    for (var i = 0; i < this.wipe_bps.length; i++) {
+      var bp: Blueprint = this.wipe_bps[i];
+      console.log(this.selected_wipe, user_id);
+      if (bp.wipe_id == this.selected_wipe && bp.user_id == user_id) {
+        var bp_id: number = bp.id;
+        this.craftService.removeBlueprint(bp_id).subscribe((bp) => {
+          console.log('Deleted : ', bp);
+          this.getBlueprints(this.selected_wipe);
+        });
+      }
     }
   }
 
