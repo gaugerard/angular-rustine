@@ -75,3 +75,10 @@ button:hover{
     display: flex;
     flex-direction: column;
 }
+
+.login-form a{
+    color: var(--darkGrey);
+    font-size: 0.8rem;
+    text-decoration: underline;
+    font-weight: 600;
+}
