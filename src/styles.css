@@ -10,6 +10,7 @@
   --darkerGrey: rgb(46, 46, 46);
   --redRust: #cd4128;
   --almostWhite: rgb(245, 245, 245);
+  --blue: #0077ff6c;
 }
 /* reset */
 * {
@@ -158,15 +159,20 @@ button {
 
 footer {
   background: var(--darkGrey);
-  padding: 1rem 1rem;
+  font-size: 0.9rem;
+  padding: 0.8rem 0.8rem;
   color: white;
-  text-align: center;
   position: static;
   width: 100%;
-  bottom: 0;
+  /* bottom: 0; */
+
+  display: flex;
+  justify-content: center;
 }
 footer p {
   font-weight: 300;
   margin: 0.3rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 

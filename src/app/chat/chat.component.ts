@@ -72,5 +72,8 @@ export class ChatComponent implements OnInit {
             this.messages.push(message);
           });
       });
+      
+     
+
   }
 }
