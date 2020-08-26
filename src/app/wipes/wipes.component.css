@@ -93,10 +93,6 @@ li {
   height: 35px;
   color: white;
 }
-
-.fa-plus-square{
-  margin-left: 0.8rem;
-}
 .add-wipe {
   display: flex;
   justify-content: flex-start;
@@ -105,10 +101,13 @@ li {
 
 .add-wipe a i {
   color: var(--almostWhite);
- 
+  margin-left: 0.8rem;
   font-size: 1.4rem;
 }
 
+.add-wipe a i:hover{
+  color: var(--redRust);
+}
 /* .avatar-wipes{
     font-size: 1.2rem;
     transform: translateY(-2px);

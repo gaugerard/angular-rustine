@@ -77,3 +77,29 @@
 }
 
 .show {display: block;}
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 580px) {
+    
+  /* app-component (header) */
+ 
+  .header{
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+  .ang-title{
+     font-size: 1.5rem;
+  }
+
+  .logo-icon{
+    font-size: 1.5rem;
+  }
+  .right-side-menu{
+      display: none;
+  }
+}
+
+
+

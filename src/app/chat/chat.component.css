@@ -2,7 +2,6 @@
   display: flex;
   background: var(--lowerGrey);
   color: white;
-  
 }
 .messages {
   width: 100%;
@@ -10,50 +9,49 @@
   overflow-y: scroll;
   max-height: calc(100vh - 120px);
 }
-  /* width */
+/* width */
 ::-webkit-scrollbar {
   width: 15px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.493); 
+  box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.493);
   border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--grey); 
+  background: var(--grey);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--darkGrey); 
+  background: var(--darkGrey);
 }
 
-
-.chat{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
+.chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.chat-input{
-    display: flex;
-    align-items: center;
-    padding: 0 0 1rem 1rem;
+.chat-input {
+  display: flex;
+  align-items: center;
+  padding: 0 0 1rem 1rem;
 }
-.chat-input input{
-    width: 85%;
-    height: 2.5rem;
-    background: var(--grey);
-    color: white;
+.chat-input input {
+  width: 85%;
+  height: 2.5rem;
+  background: var(--grey);
+  color: white;
 }
-.chat-input i{
-    font-size: 1.5rem;
+.chat-input i {
+  font-size: 1.5rem;
 }
-.chat-input a i:hover{
+.chat-input a i:hover {
   color: var(--blue);
 }

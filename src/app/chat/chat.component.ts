@@ -17,7 +17,15 @@ export class ChatComponent implements OnInit {
     private wipeService: WipeService,
     private messageChatService: MessageChatService,
     private authenticationService: AuthenticationService
-  ) {}
+  ) 
+  {
+    document.addEventListener('keypress', function(e){
+      let key = e.keyCode;
+      if ( key === 13 ){
+        document.getElementById('plane-click').click();
+      }
+    })
+  }
 
   selected_wipe: number;
   wipe_chats: WipeChat[] = [];
@@ -79,4 +87,6 @@ export class ChatComponent implements OnInit {
     let input_text = <HTMLInputElement>(document.getElementById('message-to-send'));
     input_text.value = "";
   }
+
+
 }
