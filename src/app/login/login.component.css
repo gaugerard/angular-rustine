@@ -83,10 +83,10 @@ button:hover {
     .wrapper {
         background-size: auto;
         background-position: 75% 40%;
-        
       }
 
     .login-panel {
+        margin: 0;
         flex-direction: column-reverse;
         align-items: center;
         width: 100%;
@@ -94,9 +94,11 @@ button:hover {
 
     .panel-left{
        width: 100%; 
+       box-shadow: none;
     }
 
     .panel-right{
+        box-shadow: none;
         height: 30px;
         width: 100%;
     }
