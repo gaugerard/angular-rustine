@@ -73,7 +73,10 @@ export class ChatComponent implements OnInit {
           });
       });
       
-     
+  }
 
+  erase(): void {
+    let input_text = <HTMLInputElement>(document.getElementById('message-to-send'));
+    input_text.value = "";
   }
 }
