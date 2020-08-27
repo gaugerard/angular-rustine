@@ -107,7 +107,7 @@ export class CraftsComponent implements OnInit {
       window.alert('Insert an existing blueprint name (ex: Assault Rifle)');
       return;
     } else {
-      console.log(stuff_name);
+      //console.log(stuff_name);
       this.control.setValue('');
       this.craftService
         .addBlueprint({
@@ -126,11 +126,11 @@ export class CraftsComponent implements OnInit {
   removeAllBlueprint(user_id: number): void {
     for (var i = 0; i < this.wipe_bps.length; i++) {
       var bp: Blueprint = this.wipe_bps[i];
-      console.log(this.selected_wipe, user_id);
+     // console.log(this.selected_wipe, user_id);
       if (bp.wipe_id == this.selected_wipe && bp.user_id == user_id) {
         var bp_id: number = bp.id;
         this.craftService.removeBlueprint(bp_id).subscribe((bp) => {
-          console.log('Deleted : ', bp);
+         // console.log('Deleted : ', bp);
           this.getBlueprints(this.selected_wipe);
         });
       }
@@ -140,7 +140,7 @@ export class CraftsComponent implements OnInit {
   removeBlueprint(wipe_id: number, user_id: number, stuff: string): void {
     for (var i = 0; i < this.wipe_bps.length; i++) {
       var bp: Blueprint = this.wipe_bps[i];
-      console.log(wipe_id, user_id, stuff);
+      //console.log(wipe_id, user_id, stuff);
       if (
         bp.wipe_id == wipe_id &&
         bp.user_id == user_id &&
@@ -148,7 +148,7 @@ export class CraftsComponent implements OnInit {
       ) {
         var bp_id: number = bp.id;
         this.craftService.removeBlueprint(bp_id).subscribe((bp) => {
-          console.log('Deleted : ', bp);
+        //  console.log('Deleted : ', bp);
           this.getBlueprints(this.selected_wipe);
         });
       }

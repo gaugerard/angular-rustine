@@ -2,20 +2,30 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { MessageChat } from './message_chat';
-
+import { WipeChat } from './wipe_chat';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, tap, delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MessageChatService {
-  private messagesChatUrl = 'http://51.210.12.59:9000/message_chat';
+  private messageChatUrl = 'http://51.210.12.59:9000/message_chat';
+  private allWipeMessages = 'http://51.210.12.59:9000/wipe_chat';
 
   constructor(private http: HttpClient) {}
 
+  getAllMessages(wipe_id: number) {
+    const url = `${this.allWipeMessages}/${wipe_id}`;
+    return this.http
+      .get<MessageChat[]>(url)
+      .pipe(
+        catchError(this.handleError<MessageChat[]>(`getWipe wipe_id=${wipe_id}`))
+      );
+  }
+
   getMessage(msg_id: number): Observable<MessageChat> {
-    const url = `${this.messagesChatUrl}/${msg_id}`;
+    const url = `${this.messageChatUrl}/${msg_id}`;
     return this.http
       .get<MessageChat>(url)
       .pipe(
@@ -24,7 +34,7 @@ export class MessageChatService {
   }
 
   sendMessage(msg: MessageChat): Observable<MessageChat> {
-    return this.http.post<MessageChat>(this.messagesChatUrl, msg);
+    return this.http.post<MessageChat>(this.messageChatUrl, msg);
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

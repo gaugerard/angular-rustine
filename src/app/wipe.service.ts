@@ -40,13 +40,13 @@ export class WipeService {
       var i;
       for (i = 0; i < this.authorized_wipe.length; i++) {
         var wipe_id = this.authorized_wipe[i].wipe_id;
-        console.log(wipe_id);
+        //console.log(wipe_id);
         this.getWipe(wipe_id).subscribe((rep) => {
           this.wipes.push(rep);
         });
       }
     });
-    console.log(this.wipes);
+    //console.log(this.wipes);
     return this.wipes;
   }
 
@@ -61,21 +61,21 @@ export class WipeService {
   // get players from a wipe by looking at craft.
   getBlueprints(wipe_id: number): Observable<Blueprint[]> {
     const url = `${this.wipeBlueprint}/${wipe_id}`;
-    console.log(url);
+    //console.log(url);
     return this.http.get<Blueprint[]>(url);
   }
 
   // get players from a wipe by looking at auth_user.
   getWipePlayers(wipe_id: number): Observable<AuthUser[]> {
     const url = `${this.wipeAddAuthUrl}/${wipe_id}`;
-    console.log(url);
+    //console.log(url);
     return this.http.get<AuthUser[]>(url);
   }
 
   //get wipe_chat for a specific wipe
   getWipeChat(wipe_id: number): Observable<WipeChat[]> {
     const url = `${this.wipeWipeChat}/${wipe_id}`;
-    console.log(url);
+    //console.log(url);
     return this.http.get<WipeChat[]>(url);
   }
 
@@ -95,7 +95,7 @@ export class WipeService {
 
   // authorize a use on a wipe
   authUser2Wipe(authorization: AuthUser): Observable<AuthUser> {
-    console.log(authorization);
+    //console.log(authorization);
     return this.http.post<AuthUser>(
       this.wipeAddAuthUrl,
       authorization,
@@ -108,10 +108,10 @@ export class WipeService {
     const url = `${this.wipeAddAuthUrl}/${wipe_id}`;
     this.http.get(url).subscribe((rep) => {
       if (rep.valueOf.length == 0) {
-        console.log('wipe needs to be deleted');
+        //console.log('wipe needs to be deleted');
         const delete_wipe_url = `${this.wipesUrl}/${wipe_id}`;
         this.http.delete(delete_wipe_url).subscribe((rep) => {
-          console.log(rep);
+         // console.log(rep);
         });
       }
     });
@@ -121,9 +121,9 @@ export class WipeService {
     for (var i = 0; i < this.authorized_wipe.length; i++) {
       var auth_id = this.authorized_wipe[i];
       if (user_id == auth_id.user_id && wipe_id == auth_id.wipe_id) {
-        console.log('===> user ', user_id);
-        console.log('===> wipe ', wipe_id);
-        console.log('===> auth_id ', auth_id.id);
+        //console.log('===> user ', user_id);
+        //console.log('===> wipe ', wipe_id);
+       // console.log('===> auth_id ', auth_id.id);
         const url = `${this.wipeAddAuthUrl}/${auth_id.id}`;
         return this.http.delete<AuthUser>(url);
       }

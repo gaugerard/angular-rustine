@@ -6,7 +6,7 @@
       <li *ngFor="let msg of messages" class="margin-b-1">
         #{{ msg.user_src }} :
         {{ msg.content }}
-        <span class="badge">({{ msg.date }})</span>
+        <span class="badge">({{ tohourfct(msg.date) }})</span>
       </li>
     </ul>
 

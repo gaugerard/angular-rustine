@@ -5,6 +5,8 @@ import { WipeService } from '../wipe.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MessageChatService } from '../message-chat.service';
 import { AuthenticationService } from '../authentication.service';
+import { observable, Observable } from 'rxjs';
+import { calcPossibleSecurityContexts } from '@angular/compiler/src/template_parser/binding_parser';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -23,7 +25,7 @@ export class ChatComponent implements OnInit {
   wipe_chats: WipeChat[] = [];
   messages: MessageChat[] = [];
 
-  ngOnInit(): void {
+  /*ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.selected_wipe = Number.parseInt(
         this.route.snapshot.paramMap.get('wipe_id')
@@ -31,30 +33,36 @@ export class ChatComponent implements OnInit {
       console.log('==> ', this.selected_wipe);
       // getting all bps for this selected wipe.
       this.getWipeChat(this.selected_wipe);
+      this.orderList(this.messages);
+    });
+  }*/
+
+  async ngOnInit() {
+    this.route.params.subscribe((params) => {
+      this.selected_wipe = Number.parseInt(
+        this.route.snapshot.paramMap.get('wipe_id')
+      );
+
+      this.messageChatService
+        .getAllMessages(this.selected_wipe)
+        .subscribe((rep) => {
+          this.messages = [];
+          this.messages = rep;
+        });
     });
   }
 
-  getWipeChat(wipe_id: number): void {
-    this.wipe_chats = [];
-    this.wipeService.getWipeChat(wipe_id).subscribe((wc) => {
-      this.wipe_chats = wc;
-      this.initMessages();
-    });
-  }
-
-  initMessages(): void {
-    this.messages = [];
-    for (var i = 0; i < this.wipe_chats.length; i++) {
-      var key: number = this.wipe_chats[i].msg_id;
-      this.messageChatService.getMessage(key).subscribe((msg) => {
-        var message: MessageChat = msg;
-        this.messages.push(msg);
-      });
-    }
+  tohourfct(msg: Date) {
+    var d = new Date(msg);
+    var h = d.toUTCString();
+    //console.log(h);
+    return h;
   }
 
   sendMessage(content: string): void {
     const today = new Date();
+
+    console.log(today);
 
     this.messageChatService
       .sendMessage({
@@ -72,8 +80,5 @@ export class ChatComponent implements OnInit {
             this.messages.push(message);
           });
       });
-      
-     
-
   }
 }

@@ -37,7 +37,7 @@ export class CreateAccountComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('a');
+    //console.log('a');
     this.submitted = true;
 
     // stop here if form is invalid
@@ -45,10 +45,10 @@ export class CreateAccountComponent implements OnInit {
       this.newAccountForm.invalid ||
       this.f.password.value != this.f.repeatPassword.value
     ) {
-      console.log('b');
+     // console.log('b');
       return;
     }
-    console.log('c');
+   // console.log('c');
     this.loading = true;
     this.authenticationService
       .createAccount(this.f.username.value, this.f.password.value)
