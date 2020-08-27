@@ -19,7 +19,15 @@ export class ChatComponent implements OnInit {
     private wipeService: WipeService,
     private messageChatService: MessageChatService,
     private authenticationService: AuthenticationService
-  ) {}
+  ) 
+  {
+    document.addEventListener('keypress', function(e){
+      let key = e.keyCode;
+      if ( key === 13 ){
+        document.getElementById('plane-click').click();
+      }
+    })
+  }
 
   selected_wipe: number;
   wipe_chats: WipeChat[] = [];
@@ -80,5 +88,16 @@ export class ChatComponent implements OnInit {
             this.messages.push(message);
           });
       });
+<<<<<<< HEAD
+=======
+      
   }
+
+  erase(): void {
+    let input_text = <HTMLInputElement>(document.getElementById('message-to-send'));
+    input_text.value = "";
+>>>>>>> dba80123e622a1fd54583c60fe0819dfa7914ec8
+  }
+
+
 }
