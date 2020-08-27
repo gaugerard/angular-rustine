@@ -33,18 +33,20 @@ export class WipesComponent implements OnInit {
   }
 
   getWipes(): void {
-    this.wipes = this.wipeService.getWipes(this.user.id);
+    this.wipeService
+      .getWipes(this.user.id)
+      .subscribe((rep) => (this.wipes = rep));
   }
 
   setCurrentWipe(wipe_id: number): void {
     this.wipeService.currentWiperie = wipe_id;
-   // console.log('Current wipe id : ', this.wipeService.currentWiperie);
+    // console.log('Current wipe id : ', this.wipeService.currentWiperie);
 
     if (this.router.url.search('chat') == 1) {
-     // console.log('you are in chat');
+      // console.log('you are in chat');
       this.router.navigate(['chat/', wipe_id]);
     } else {
-     // console.log('you are in crafts');
+      // console.log('you are in crafts');
       this.router.navigate(['crafts/', wipe_id]);
     }
   }
@@ -77,14 +79,14 @@ export class WipesComponent implements OnInit {
       } as Wipe)
       .subscribe((wipe) => {
         this.wipes.push(wipe);
-      //  console.log(this.user.id, wipe.id);
+        //  console.log(this.user.id, wipe.id);
         this.authUser2Wipe(this.user.id, wipe.id);
       });
   }
 
   removeAuth2wipe(user_id: number, wipe_id: number): void {
     this.wipeService.removeAuthUser2Wipe(user_id, wipe_id).subscribe((auth) => {
-     // console.log('User removed from wipe: ', auth);
+      console.log('User removed from wipe: ', auth);
       this.getWipes();
       this.wipeService.removeEmptyWipe(wipe_id);
     });

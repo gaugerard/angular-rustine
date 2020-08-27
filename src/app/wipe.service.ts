@@ -15,7 +15,8 @@ import { MessageChat } from './message_chat';
 })
 export class WipeService {
   private wipesUrl = 'http://51.210.12.59:9000/wipe';
-  private wipeAuthUrl = 'http://51.210.12.59:9000/auth_user/user';
+  private AuthUrl = 'http://51.210.12.59:9000/auth_user/user';
+  private wipeAuthUrl = 'http://51.210.12.59:9000/wipe/from_user_id';
   private wipeAddAuthUrl = 'http://51.210.12.59:9000/auth_user';
   private wipeBlueprint = 'http://51.210.12.59:9000/blueprint';
   private wipeWipeChat = 'http://51.210.12.59:9000/wipe_chat';
@@ -32,22 +33,17 @@ export class WipeService {
   constructor(private http: HttpClient) {}
 
   // get all wipes of the logged in user.
-  getWipes(user_id: number): Wipe[] {
-    this.wipes = [];
-    const url = `${this.wipeAuthUrl}/${user_id}`;
-    this.http.get<AuthUser[]>(url).subscribe((rep) => {
+  getWipes(user_id: number): Observable<Wipe[]> {
+    const url_auth = `${this.AuthUrl}/${user_id}`;
+    this.http.get<AuthUser[]>(url_auth).subscribe((rep) => {
       this.authorized_wipe = rep;
-      var i;
-      for (i = 0; i < this.authorized_wipe.length; i++) {
-        var wipe_id = this.authorized_wipe[i].wipe_id;
-        //console.log(wipe_id);
-        this.getWipe(wipe_id).subscribe((rep) => {
-          this.wipes.push(rep);
-        });
-      }
     });
-    //console.log(this.wipes);
-    return this.wipes;
+
+    this.wipes = [];
+    const url_wipes = `${this.wipeAuthUrl}/${user_id}`;
+    return this.http
+      .get<Wipe[]>(url_wipes)
+      .pipe(catchError(this.handleError<Wipe[]>(`getWipe wipe_id=${user_id}`)));
   }
 
   // get a wipe.
@@ -111,7 +107,7 @@ export class WipeService {
         //console.log('wipe needs to be deleted');
         const delete_wipe_url = `${this.wipesUrl}/${wipe_id}`;
         this.http.delete(delete_wipe_url).subscribe((rep) => {
-         // console.log(rep);
+          // console.log(rep);
         });
       }
     });
@@ -123,7 +119,7 @@ export class WipeService {
       if (user_id == auth_id.user_id && wipe_id == auth_id.wipe_id) {
         //console.log('===> user ', user_id);
         //console.log('===> wipe ', wipe_id);
-       // console.log('===> auth_id ', auth_id.id);
+        // console.log('===> auth_id ', auth_id.id);
         const url = `${this.wipeAddAuthUrl}/${auth_id.id}`;
         return this.http.delete<AuthUser>(url);
       }

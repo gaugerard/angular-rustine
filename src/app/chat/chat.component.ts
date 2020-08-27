@@ -88,15 +88,12 @@ export class ChatComponent implements OnInit {
             this.messages.push(message);
           });
       });
-<<<<<<< HEAD
-=======
       
   }
 
   erase(): void {
     let input_text = <HTMLInputElement>(document.getElementById('message-to-send'));
     input_text.value = "";
->>>>>>> dba80123e622a1fd54583c60fe0819dfa7914ec8
   }
 
 
