@@ -3,11 +3,26 @@
   background: var(--lowerGrey);
   color: white;
 }
+.container-chat-resonsive {
+  display: none;
+  background: var(--lowerGrey);
+  color: white;
+}
 .messages {
   width: 100%;
   padding: 1rem;
   overflow-y: scroll;
   max-height: calc(100vh - 120px);
+}
+.msg-date{
+  font-size: 0.7rem;
+  color: var(--lighterGrey);
+}
+.hr-msg{
+  height: 1px;
+  width: 100%;
+  background: var(--darkGrey);
+  opacity: 0.2;
 }
 /* width */
 ::-webkit-scrollbar {
@@ -54,4 +69,46 @@
 }
 .chat-input a i:hover {
   color: var(--blue);
+}
+mat-sidenav-container{
+  height: 100%;
+
+}
+mat-sidenav{
+  width: 320px;
+}
+.btn-sidenav{
+  height: 50px;
+  width: 50px;
+  background-color: rgba(128, 128, 128, 0.9);
+  border-radius:50px ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+
+
+/* < 580px*/
+@media screen and (max-width : 580px){
+  .container-main{
+    display: none;
+  }
+  .container-resonsive{
+    display: block;
+  }
+}
+/* > 580px*/
+@media screen and (min-width : 581px){
+  .container-main{
+    display: block;
+  }
+  .container-resonsive{
+    display: none;
+  }
 }

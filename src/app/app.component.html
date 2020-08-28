@@ -9,6 +9,7 @@
     </a>
 
     <div class="right-side-menu">
+
       <div class="menu-icon">
         <a routerLink="/wipes">
           <i class="fas fa-home"></i>
@@ -27,14 +28,16 @@
         </a>
       </div>
 
+
       <div class="menu-icon">
-        <i class="fas fa-bars dropbtn" onclick="drop()"></i>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#"> <i class="fas fa-sign-in-alt"></i> Connexion</a>
-          <a routerLink="/wipes"> <i class="fas fa-user"></i> My profile</a>
-          <a (click)="logout()"> <i class="fas fa-sign-out-alt"></i> Log out</a>
-        </div>
+        <i class="fas fa-bars dropbtn" [matMenuTriggerFor]="dropDown"></i>
+        <mat-menu #dropDown="matMenu">
+          <button mat-menu-item>  <i class="fas fa-sign-in-alt"></i> Log in </button>
+          <button mat-menu-item (click)="logout()"> <i class="fas fa-sign-out-alt"></i>Log out </button>
+        </mat-menu>
       </div>
+
+
     </div>
   </div>
 </header>

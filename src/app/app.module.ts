@@ -15,6 +15,10 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { FormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +37,8 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule,
     MatAutocompleteModule,
     MatInputModule,
+    BrowserAnimationsModule,
+    MaterialModule,
 
     /*// The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.

@@ -86,10 +86,11 @@ button:hover {
       }
 
     .login-panel {
-        margin: 0;
         flex-direction: column-reverse;
         align-items: center;
-        width: 100%;
+        width: 95%;
+        margin: 0;
+        margin-bottom: 10rem;
     }
 
     .panel-left{

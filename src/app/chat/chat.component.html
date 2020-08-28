@@ -1,30 +1,71 @@
-<div class="container-chat">
-  <app-wipes></app-wipes>
+<div class="container-main">
+  <div class="container-chat">
+    <app-wipes></app-wipes>
 
-  <div class="chat" onload="scrollToBottom(this.id)">
-    <ul class="messages" id="divToScroll">
-      <li *ngFor="let msg of messages" class="margin-b-1">
-        #{{ msg.user_src }} :
-        {{ msg.content }}
-        <span class="badge">({{ tohourfct(msg.date) }})</span>
-      </li>
-    </ul>
-    
-    <div class="chat-input">
-      <input
-        type="text"
-        name=""
-        id="message-to-send"
-        #messageToSend
-        placeholder="Send a message ..."
-      />
-      <a (click)="sendMessage(messageToSend.value); erase()" id="plane-click"><i class="fas fa-paper-plane"></i></a>
+    <div class="chat" onload="scrollToBottom(this.id)">
+      <ul class="messages" id="divToScroll">
+        <li *ngFor="let msg of messages" class="margin-b-1">
+          #{{ msg.user_src }} :
+          {{ msg.content }}
+          <span class="badge msg-date">({{ tohourfct(msg.date) }})</span>
+          <div class="hr-msg"></div>
+        </li>
+      </ul>
+
+      <div class="chat-input">
+        <input
+          type="text"
+          name=""
+          id="message-to-send"
+          #messageToSend
+          placeholder="Send a message ..."
+        />
+        <a (click)="sendMessage(messageToSend.value); erase()" id="plane-click"
+          ><i class="fas fa-paper-plane"></i
+        ></a>
+      </div>
     </div>
-    
   </div>
 </div>
 
+<!--------------------------------RESPONSIVE------------------------------------->
 
+<div class="container-resonsive">
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <app-wipes></app-wipes>
+    </mat-sidenav>
 
+    <div class="btn-sidenav" (click)="sidenav.open()">
+      <i class="fas fa-angle-double-right"></i>
+    </div>
 
- 
+    <div class="container-chat">
+      <div class="chat" onload="scrollToBottom(this.id)">
+        <ul class="messages" id="divToScroll">
+          <li *ngFor="let msg of messages" class="margin-b-1">
+            #{{ msg.user_src }} :
+            {{ msg.content }}
+            <span class="badge msg-date">({{ tohourfct(msg.date) }})</span>
+            <div class="hr-msg"></div>
+          </li>
+        </ul>
+
+        <div class="chat-input">
+          <input
+            type="text"
+            name=""
+            id="message-to-send-resp"
+            #messageToSendResp
+            placeholder="Send a message ..."
+          />
+          <a
+            (click)="sendMessage(messageToSendResp.value); erase()"
+            id="plane-click"
+            ><i class="fas fa-paper-plane"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-container>
+</div>
