@@ -1,43 +1,43 @@
-.header{
-    background-color: var(--darkGrey) ;
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.1);
+.header {
+  background-color: var(--darkGrey);
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.1);
 }
-.logo-icon{
-    font-size: 2rem;
-    color: var(--redRust);
-    margin-left: 1rem;
-    transform: translateY(4px);
+.logo-icon {
+  font-size: 2rem;
+  color: var(--redRust);
+  margin-left: 1rem;
+  transform: translateY(4px);
 }
-.ang-title{
-    color: white;
-    font-family: Rust;
-    font-size: 2rem;
-    letter-spacing: 2px;
-    margin: 0 2rem 0 1rem;
-    transform: translateY(4px); 
+.ang-title {
+  color: white;
+  font-family: Rust;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin: 0 2rem 0 1rem;
+  transform: translateY(4px);
 }
-.logo{
-    display: flex;
+.logo {
+  display: flex;
 }
 
-.right-side-menu{
+.right-side-menu {
   display: flex;
   align-items: center;
   margin-right: 1rem;
 }
 
-.menu-icon{
+.menu-icon {
   color: white;
   font-size: 1.5rem;
   cursor: pointer;
   transition: 0.2s;
   margin: 1rem;
 }
-.menu-icon i:hover{
+.menu-icon i:hover {
   color: var(--redRust);
 }
 
@@ -65,40 +65,39 @@
   text-decoration: none;
   display: block;
 }
-.dropdown-content a i{
+.dropdown-content a i {
   margin-right: 7px;
 }
-.dropdown-content a:hover{
+.dropdown-content a:hover {
   color: var(--redRust);
 }
 .dropdown a:hover {
   background-color: #ddd;
 }
 
-.show {display: block;}
-
+.show {
+  display: block;
+}
 
 /* RESPONSIVE */
 @media screen and (max-width: 580px) {
-    
   /* app-component (header) */
- 
-  .header{
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-  }
-  .ang-title{
-     font-size: 1.5rem;
-  }
 
-  .logo-icon{
+  .header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .ang-title {
     font-size: 1.5rem;
   }
-  .right-side-menu{
-      display: none;
+
+  .logo {
+    display: none;
+  }
+
+  .right-side-menu .menu-icon a i,
+  .right-side-menu .menu-icon i {
+    font-size: 1.7rem;
   }
 }
-
-
-
