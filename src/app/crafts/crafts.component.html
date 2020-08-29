@@ -1,51 +1,129 @@
-<div class="container-crafts-wipes">
-  <app-wipes></app-wipes>
+<div class="container-main">
+  <div class="container-crafts-wipes">
+    <app-wipes></app-wipes>
 
-  <div class="wrapper">
-    <h1>List of blueprints</h1>
-    <div class="container-crafts">
-      <li *ngFor="let player_id of list_players">
-        <div class="user-list-all">
-          <div class="user-name-avatar">
-            <!--<div class="avatar-img avatar-nm"></div>-->
-            <h2>{{ player_id }}</h2>
-            <div class="hr-avatar"></div>
-          </div>
-          <div class="user-list" id="user-list">
-            <div *ngFor="let stuff of dico_players_bps[player_id]">
-              <a
-                (click)="removeBlueprint(this.selected_wipe, player_id, stuff)"
-              >
-                <i class="fas fa-times"></i>
-              </a>
+    <div class="wrapper">
+      <h1>List of blueprints</h1>
+      <div class="container-crafts">
+        <li *ngFor="let player_id of list_players">
+          <div class="user-list-all">
+            <div class="user-name-avatar">
+              <!--<div class="avatar-img avatar-nm"></div>-->
+              <h2>{{ player_id }}</h2>
+              <div class="hr-avatar"></div>
+            </div>
+            <div class="user-list" id="user-list">
+              <div *ngFor="let stuff of dico_players_bps[player_id]">
+                <a
+                  (click)="
+                    removeBlueprint(this.selected_wipe, player_id, stuff)
+                  "
+                >
+                  <i class="fas fa-times"></i>
+                </a>
 
-              {{ stuff }}
+                {{ stuff }}
+              </div>
+            </div>
+
+            <div class="crafts-btn">
+              <form class="example-form">
+                <input
+                  type="text"
+                  placeholder="Pick one"
+                  aria-label="Number"
+                  matInput
+                  #input_id
+                  [formControl]="control"
+                />
+                <div *ngIf="input_id.value">
+                  <mat-option
+                    *ngFor="let option of filteredOptions | async"
+                    [value]="option"
+                  >
+                    <a (click)="addBlueprint(player_id, option)">{{
+                      option
+                    }}</a>
+                  </mat-option>
+                </div>
+              </form>
+              <button (click)="removeAllBlueprint(player_id)">
+                <i class="fas fa-eraser"></i>
+              </button>
             </div>
           </div>
-
-          <div class="crafts-btn">
-            <form class="example-form">
-              <input
-                type="text"
-                placeholder="Pick one"
-                aria-label="Number"
-                matInput
-                #input_id
-                [formControl]="control"
-              />
-              <div *ngIf="input_id.value">
-                <mat-option
-                  *ngFor="let option of filteredOptions | async"
-                  [value]="option"
-                >
-                  <a (click)="addBlueprint(player_id, option)">{{ option }}</a>
-                </mat-option>
-              </div>
-            </form>
-            <button (click)="removeAllBlueprint(player_id)"><i class="fas fa-eraser"></i></button>
-          </div>
-        </div>
-      </li>
+        </li>
+      </div>
     </div>
   </div>
+</div>
+
+<!--------------------------------RESPONSIVE------------------------------------->
+
+<div class="container-resonsive">
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <app-wipes></app-wipes>
+    </mat-sidenav>
+
+    <div class="wrapper">
+      <h1>List of blueprints</h1>
+      <div class="container-crafts">
+        <li *ngFor="let player_id of list_players">
+          <div class="user-list-all">
+            <div class="user-name-avatar">
+              <!--<div class="avatar-img avatar-nm"></div>-->
+              <h2>{{ player_id }}</h2>
+              <div class="hr-avatar"></div>
+            </div>
+            <div class="user-list" id="user-list">
+              <div *ngFor="let stuff of dico_players_bps[player_id]">
+                <a
+                  (click)="
+                    removeBlueprint(this.selected_wipe, player_id, stuff)
+                  "
+                >
+                  <i class="fas fa-times"></i>
+                </a>
+
+                {{ stuff }}
+              </div>
+            </div>
+
+            <div class="crafts-btn">
+              <form class="example-form">
+                <input
+                  type="text"
+                  placeholder="Pick one"
+                  aria-label="Number"
+                  matInput
+                  #input_id
+                  [formControl]="control"
+                />
+                <div *ngIf="input_id.value">
+                  <mat-option
+                    *ngFor="let option of filteredOptions | async"
+                    [value]="option"
+                  >
+                    <a (click)="addBlueprint(player_id, option)">{{
+                      option
+                    }}</a>
+                  </mat-option>
+                </div>
+              </form>
+              <button (click)="removeAllBlueprint(player_id)">
+                <i class="fas fa-eraser"></i>
+              </button>
+            </div>
+          </div>
+        </li>
+      </div>
+    </div>
+
+
+
+    <div class="btn-sidenav" (click)="sidenav.open()">
+      <i class="fas fa-angle-double-right"></i>
+    </div>
+  </mat-sidenav-container>
 </div>

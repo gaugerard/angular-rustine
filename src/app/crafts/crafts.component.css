@@ -88,3 +88,36 @@
     margin-bottom: 1rem;
     border-radius: 50%;
 }
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 580px) {
+    .container-main{
+        display: none;
+      }
+    .container-responsive{
+        display: block;
+    }
+    .user-list-all{
+        margin: auto;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+    .container-crafts{
+        display: flex;
+        justify-content: center;
+        padding: 0.5rem;
+        margin: auto;
+    }
+
+}
+/* > 580px*/
+@media screen and (min-width : 581px){
+    .container-main{
+      display: block;
+    }
+    .container-resonsive{
+      display: none;
+    }
+  }
+  

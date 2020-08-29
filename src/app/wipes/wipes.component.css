@@ -163,3 +163,13 @@ li {
 }
 
 .show {display: block;}
+
+
+
+
+@media screen and (max-width: 580px) {
+  .container-wipes{
+    margin: 0;
+    width: 100%;
+  }
+}

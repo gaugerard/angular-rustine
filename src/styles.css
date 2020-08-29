@@ -58,7 +58,7 @@
 }
 /* general */
 body {
-  background: var(--almostWhite);
+  background: var(--grey);
   /* background: url(./img/BGw.png); */
   background-size: contain;
   font-family: "Roboto", sans-serif;
@@ -176,6 +176,32 @@ footer p {
   margin-left: 0.5rem;
 }
 
+mat-sidenav-container{
+  height: 100%;
+
+}
+mat-sidenav{
+  width: 320px;
+}
+.btn-sidenav{
+  height: 50px;
+  width: 50px;
+  background-color: rgba(128, 128, 128, 0.9);
+  border-radius:50px ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+
+mat-menu button:hover{
+  background: red;
+}
 
 /* RESPONSIVE */
 @media screen and (max-width: 580px) {

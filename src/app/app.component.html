@@ -12,7 +12,7 @@
 
       <div class="menu-icon">
         <a routerLink="/wipes">
-          <i class="fas fa-home"></i>
+          <i class="fas fa-server"></i>
         </a>
       </div>
 
@@ -30,8 +30,8 @@
 
 
       <div class="menu-icon">
-        <i class="fas fa-bars dropbtn" [matMenuTriggerFor]="dropDown"></i>
-        <mat-menu #dropDown="matMenu">
+        <i class="fas fa-user " [matMenuTriggerFor]="dropDown"></i>
+        <mat-menu #dropDown="matMenu" class="mat-menu-drop">
           <button mat-menu-item>  <i class="fas fa-sign-in-alt"></i> Log in </button>
           <button mat-menu-item (click)="logout()"> <i class="fas fa-sign-out-alt"></i>Log out </button>
         </mat-menu>
