@@ -16,19 +16,37 @@
                 <a (click)="setCurrentWipe(wipe.id)">
                   <span class="badge">{{ wipe.server_name }}</span>
                 </a>
-                <a (click)="removeAuth2wipe(user.id, wipe.id)">
-                  <i class="far fa-trash-alt"></i>
-                </a>
-                <a (click)="authUser2Wipe(invit_user_id.value, wipe.id)"
-                  ><i class="fas fa-user-plus"></i
-                ></a>
-                <input
-                  type="text"
-                  name=""
-                  id="invit_user_id"
-                  #invit_user_id
-                  placeholder="Add friend"
-                />
+
+
+
+                <div>
+                <i class="fas fa-ellipsis-h" [matMenuTriggerFor]="dropDown"></i>
+                <mat-menu #dropDown="matMenu" class="mat-menu-drop">
+                  <button>
+                    <a (click)="removeAuth2wipe(user.id, wipe.id)">
+                      <i class="far fa-trash-alt" style="color: var(--redRust);"></i>
+                    </a>
+                  </button>
+                  <div>
+                  
+
+                  <input
+                    type="text"
+                    class="input-friend"
+                    id="invit_user_id"
+                    #invit_user_id
+                    placeholder="Add friend here ..."
+                    (click)="$event.stopPropagation()"
+                  />
+                  <button>
+                    <a (click)="authUser2Wipe(invit_user_id.value, wipe.id)"
+                      ><i class="fas fa-user-plus" style="color: var(--redRust);"></i>
+                    </a>
+                  </button>
+                </div>
+                </mat-menu>
+              </div>
+
               </div>
 
               <div class="hr-li"></div>

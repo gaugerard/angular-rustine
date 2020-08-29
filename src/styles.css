@@ -47,7 +47,7 @@
   opacity: 0.5;
 }
 .hr-li {
-  width: 150px;
+  width: 270px;
   height: 1px;
   background-color: white;
   margin-bottom: 1rem;
@@ -199,9 +199,7 @@ mat-sidenav{
   top: 5px;
 }
 
-mat-menu button:hover{
-  background: red;
-}
+
 
 /* RESPONSIVE */
 @media screen and (max-width: 580px) {
