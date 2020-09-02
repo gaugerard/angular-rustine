@@ -1,3 +1,8 @@
+
+<div class="container-wipe-all">
+
+
+
 <div class="container-wipes">
   <div>
     <div class="wipes-head">
@@ -17,36 +22,44 @@
                   <span class="badge">{{ wipe.server_name }}</span>
                 </a>
 
-
-
                 <div>
-                <i class="fas fa-ellipsis-h" [matMenuTriggerFor]="dropDown"></i>
-                <mat-menu #dropDown="matMenu" class="mat-menu-drop">
-                  <button>
-                    <a (click)="removeAuth2wipe(user.id, wipe.id)">
-                      <i class="far fa-trash-alt" style="color: var(--redRust);"></i>
-                    </a>
-                  </button>
-                  <div>
-                  
+                  <i
+                    class="fas fa-ellipsis-h"
+                    [matMenuTriggerFor]="dropDown"
+                  ></i>
+                  <mat-menu #dropDown="matMenu" class="mat-menu-drop">
+                    <div class="delete">
+                      <p>Delete</p>
+                      <button>
+                        <a (click)="removeAuth2wipe(user.id, wipe.id)">
+                          <i
+                            class="far fa-trash-alt"
+                            style="color: var(--redRust)"
+                          ></i>
+                        </a>
+                      </button>
+                    </div>
 
-                  <input
-                    type="text"
-                    class="input-friend"
-                    id="invit_user_id"
-                    #invit_user_id
-                    placeholder="Add friend here ..."
-                    (click)="$event.stopPropagation()"
-                  />
-                  <button>
-                    <a (click)="authUser2Wipe(invit_user_id.value, wipe.id)"
-                      ><i class="fas fa-user-plus" style="color: var(--redRust);"></i>
-                    </a>
-                  </button>
+                    <div class="add-friend">
+                      <input
+                        type="text"
+                        class="input-friend"
+                        id="invit_user_id"
+                        #invit_user_id
+                        placeholder="Add friend here ..."
+                        (click)="$event.stopPropagation()"
+                      />
+                      <button>
+                        <a (click)="authUser2Wipe(invit_user_id.value, wipe.id);"
+                          ><i
+                            class="fas fa-user-plus"
+                            style="color: var(--redRust)"
+                          ></i>
+                        </a>
+                      </button>
+                    </div>
+                  </mat-menu>
                 </div>
-                </mat-menu>
-              </div>
-
               </div>
 
               <div class="hr-li"></div>
@@ -62,12 +75,17 @@
             #server_name
             placeholder="Add a new server"
           />
-          <a (click)="addWipe(server_name.value)">
+          <a (click)="addWipe(server_name.value); erase('server_name') ">
             <i class="fas fa-plus-square"></i>
           </a>
         </div>
       </div>
+
+
+      
     </div>
+
+    
   </div>
 
   <div class="wipes-bottom">
@@ -76,6 +94,11 @@
     <i class="fas fa-user avatar-wipes"></i>
     <p>{{ wipePlayers }}</p>
   </div>
+
+ 
 </div>
 
-<script src="./assets/js/dropWipe.js"></script>
+  
+
+</div>
+

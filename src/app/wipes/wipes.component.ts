@@ -27,6 +27,8 @@ export class WipesComponent implements OnInit {
   ngOnInit(): void {
     //console.log(this.router.url);
     this.selected_wipe = this.wipeService.currentWiperie;
+    // console.log(this.selected_wipe);
+  
     this.getUser();
     this.getWipes();
     this.getPlayers();
@@ -100,4 +102,11 @@ export class WipesComponent implements OnInit {
       } as AuthUser)
       .subscribe();
   }
+
+  erase(eraseMe): void {
+    let input_text = <HTMLInputElement>(document.getElementById(eraseMe));
+    input_text.value = "";
+  }
+
+  
 }

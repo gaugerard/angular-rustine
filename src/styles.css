@@ -4,11 +4,11 @@
 /* variables */
 :root {
   --lighterGrey: rgb(224, 224, 224);
-  --lightGrey: rgb(150, 150, 150);
+  --lightGrey: rgb(112, 112, 112);
   --lowerGrey: rgb(78, 78, 78);
-  --grey: rgb(66, 66, 66);
+  --grey: rgb(61, 61, 61);
   --darkGrey: rgb(58, 58, 58);
-  --darkerGrey: rgb(46, 46, 46);
+  --darkerGrey: rgb(53, 53, 53);
   --redRust: #cd4128;
   --almostWhite: rgb(245, 245, 245);
   --blue: #0084ff;
@@ -198,7 +198,6 @@ mat-sidenav{
   left: 5px;
   top: 5px;
 }
-
 
 
 /* RESPONSIVE */

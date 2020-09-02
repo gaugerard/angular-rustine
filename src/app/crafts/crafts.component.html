@@ -3,7 +3,10 @@
     <app-wipes></app-wipes>
 
     <div class="wrapper">
-      <h1>List of blueprints</h1>
+      <div *ngIf="this.selected_wipe != undefined">
+        <h1>List of blueprints</h1>
+      </div>
+      
       <div class="container-crafts">
         <li *ngFor="let player_id of list_players">
           <div class="user-list-all">

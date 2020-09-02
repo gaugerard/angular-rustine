@@ -22,10 +22,28 @@ export class AppComponent {
     this.authenticationService.currentUser.subscribe(
       (x) => (this.currentUser = x)
     );
+
+    
+    window.addEventListener('scroll', () => {
+      var scrolled = window.scrollY;
+      var divTop = document.getElementById('toTop');
+    
+      if (scrolled > 50) {
+        divTop.setAttribute('class', 'topVisible');
+      } else {
+        divTop.setAttribute('class', 'topInvisible');
+      }
+    });
+    
   }
 
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }
+
+  backToTop() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }
+
 }

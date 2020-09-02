@@ -105,7 +105,7 @@ li {
   font-size: 1.4rem;
 }
 
-.add-wipe a i:hover{
+.add-wipe a i:hover {
   color: var(--redRust);
 }
 
@@ -119,25 +119,42 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
- padding-right: 2rem;
+  padding-right: 2rem;
 }
 
-mat-menu{
+mat-menu {
+  display: flex;
+}
+.delete{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  align-items: center;
+  margin-left: 0.8rem;
+}
+.delete p{
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+.delete button{
+  width: 60px;
+}
+
+.add-friend button{
+  width: 60px;
+}
+.container-wipe-all{
   display: flex;
 }
 
 /* dropdown */
-i{
+i {
   cursor: pointer;
   color: white;
 }
 
-
-
-
-
 @media screen and (max-width: 580px) {
-  .container-wipes{
+  .container-wipes {
     margin: 0;
     width: 100%;
   }

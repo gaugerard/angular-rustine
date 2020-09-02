@@ -91,13 +91,9 @@ export class ChatComponent implements OnInit {
       
   }
 
-  //not the best way to do it but it works :')
-  erase(): void {
-    let input_text = <HTMLInputElement>(document.getElementById('message-to-send'));
-    let input_text_resp = <HTMLInputElement>(document.getElementById('message-to-send-resp'));
+  erase(eraseMe): void {
+    let input_text = <HTMLInputElement>(document.getElementById(eraseMe));
     input_text.value = "";
-    input_text_resp.value = "";
   }
-
 
 }
